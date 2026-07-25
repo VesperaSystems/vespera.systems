@@ -19,7 +19,7 @@ const offers = [
   },
   {
     title: "Client routes",
-    body: "Dedicated paths such as /ubs and /sjp for client-specific display experiences and later authenticated data access.",
+    body: "Dedicated paths such as /wealth-desk and /advisory-desk for client-specific display experiences and later authenticated data access.",
   },
   {
     title: "Supabase auth",

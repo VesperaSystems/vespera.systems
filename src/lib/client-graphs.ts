@@ -24,9 +24,9 @@ const graphConfigs: Record<string, ClientGraphConfig> = {
     summary: "Cross-market demonstration graph for fictional venture relationships.",
     filters: baseFilters,
   },
-  rbs: {
-    slug: "rbs",
-    label: "RBS",
+  "uk-desk": {
+    slug: "uk-desk",
+    label: "UK Markets Desk",
     summary: "UK fintech and infrastructure lens tuned for bank-side wall display review.",
     filters: {
       ...baseFilters,
@@ -34,9 +34,9 @@ const graphConfigs: Record<string, ClientGraphConfig> = {
       sector: "Fintech",
     },
   },
-  sjp: {
-    slug: "sjp",
-    label: "SJP",
+  "advisory-desk": {
+    slug: "advisory-desk",
+    label: "Advisory Desk",
     summary: "Wealth, insuretech, and later-stage operating signals across UK and Europe.",
     filters: {
       ...baseFilters,
@@ -44,9 +44,9 @@ const graphConfigs: Record<string, ClientGraphConfig> = {
       country: "United Kingdom",
     },
   },
-  ubs: {
-    slug: "ubs",
-    label: "UBS",
+  "wealth-desk": {
+    slug: "wealth-desk",
+    label: "Global Wealth Desk",
     summary: "Cross-border capital patterns around deeptech, climate, and frontier software.",
     filters: {
       ...baseFilters,

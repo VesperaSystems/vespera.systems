@@ -25,17 +25,15 @@ function decodeSession(raw: string | undefined): VesperaSession | null {
 }
 
 export async function getVesperaSession(): Promise<VesperaSession | null> {
-  const configured = Boolean(process.env.AUTH_SECRET && process.env.POSTGRES_URL);
+  // Auth is intentionally disabled for now — vespera.systems is an open capability
+  // demo, not a paywalled product. Every visitor gets a fallback operator session.
+  // Re-enable the AUTH_SECRET/POSTGRES_URL gate below once real accounts are needed.
   const cookieStore = await cookies();
   const existing = decodeSession(cookieStore.get(VESPERA_SESSION_COOKIE)?.value);
 
   if (existing) return existing;
 
-  if (!configured && process.env.NODE_ENV !== "production") {
-    return { user: fallbackUser, expires: new Date(Date.now() + 1000 * 60 * 60 * 8).toISOString() };
-  }
-
-  return null;
+  return { user: fallbackUser, expires: new Date(Date.now() + 1000 * 60 * 60 * 8).toISOString() };
 }
 
 export async function requireWorkspaceSession(slug: string) {
