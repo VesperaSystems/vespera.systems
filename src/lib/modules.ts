@@ -22,13 +22,20 @@ export interface ClientWorkspaceConfig {
 }
 
 export const productModules: ProductModule[] = [
-  { id: "graph", label: "Graph HUD", eyebrow: "Mathematical display", summary: "A relationship graph for capital, companies, people, sectors, and institutional context.", status: "live" },
-  { id: "chat", label: "AI analyst", eyebrow: "Junior analyst layer", summary: "A tenant-aware investment assistant for queries, synthesis, briefing, and document-aware follow-up.", status: "mvp" },
+  // Skunkworks, paused: earmarked to continue as part of mission-control rather than
+  // as a standalone headline feature. Keep off the corporate site's capability list.
+  { id: "graph", label: "Graph HUD", eyebrow: "Mathematical display", summary: "A relationship graph for capital, companies, people, sectors, and institutional context.", status: "planned" },
+  { id: "chat", label: "AI analyst", eyebrow: "AI trade-timing signal", summary: "A sector-specialised signal layer that tells you when to trade, built on quant technique and curated market intelligence — not a general-purpose chatbot.", status: "mvp" },
   { id: "legal", label: "Legal checker", eyebrow: "Contract review", summary: "DOCX and TXT review with structured issues, editable recommendations, and tracked-change export.", status: "mvp" },
-  { id: "quant", label: "Quant bench", eyebrow: "Python strategy engine", summary: "A safe strategy workspace for model drafts, factor notes, chart scripts, and audit-ready quant artifacts.", status: "guarded" },
+  { id: "quant", label: "Quant bench", eyebrow: "Python strategy engine", summary: "A Python and Jupyter workspace that pulls live strategies from vespera-strategies for backtest review, factor notes, and audit-ready artifacts.", status: "guarded" },
   { id: "files", label: "Files", eyebrow: "Document estate", summary: "A controlled surface for research, contracts, charts, uploads, and generated artifacts.", status: "mvp" },
   { id: "config", label: "Config", eyebrow: "Operator controls", summary: "Tenant modules, graph presets, display density, and access controls for client workspaces.", status: "mvp" },
 ];
+
+// Modules safe to surface on the public corporate site (vesperasystems.com).
+// Graph HUD is deliberately excluded for now — unfinished skunkwork, to be folded
+// into mission-control rather than pitched as a standalone capability.
+export const companyFacingModuleIds: ProductModuleId[] = ["chat", "legal", "quant", "files"];
 
 export const productModuleMap = new Map(productModules.map((module) => [module.id, module]));
 

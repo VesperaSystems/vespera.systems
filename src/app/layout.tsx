@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vespera.systems"),
   applicationName: "Vespera Systems",
   title: {
-    default: "Vespera Systems | Product Demo and Tenant Access",
+    default: "Vespera Systems | AI Trade-Timing Signals for Investment Teams",
     template: "%s | Vespera Systems",
   },
   description:
-    "Product demo and tenant access platform for Vespera Systems intelligence displays, market maps, and authenticated client workspaces.",
+    "Vespera Systems, a Daniel Molloy Limited product, builds sector-specialised AI signals for investment timing, quant strategy tooling, and legal contract review for VC, private equity, and family office teams.",
   alternates: {
     canonical: "https://vespera.systems",
   },
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://vespera.systems",
     siteName: "Vespera Systems",
-    title: "Vespera Systems | Product Demo and Tenant Access",
+    title: "Vespera Systems | AI Trade-Timing Signals for Investment Teams",
     description:
-      "Explore the Vespera Systems demo and tenant platform for authenticated client intelligence workspaces.",
+      "Sector-specialised AI signals for investment timing, quant strategy tooling, and legal contract review — built for VC, private equity, and family office teams.",
     images: [
       {
         url: "/brand/icons/vespera-512.png",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Vespera Systems | Product Demo and Tenant Access",
+    title: "Vespera Systems | AI Trade-Timing Signals for Investment Teams",
     description:
-      "Explore the Vespera Systems demo and tenant platform for authenticated client intelligence workspaces.",
+      "Sector-specialised AI signals for investment timing, quant strategy tooling, and legal contract review — built for VC, private equity, and family office teams.",
     images: ["/brand/icons/vespera-512.png"],
   },
 };
