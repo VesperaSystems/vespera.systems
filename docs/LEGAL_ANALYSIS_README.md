@@ -249,7 +249,7 @@ NEXTAUTH_URL=https://your-domain.vercel.app
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd vespera-ai-chatbot
+cd vespera.systems
 
 # Install dependencies
 pnpm install

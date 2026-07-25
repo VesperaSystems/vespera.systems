@@ -1,6 +1,6 @@
-# Vespera AI Chatbot
+# Vespera Systems
 
-A sophisticated AI-powered chatbot built with Next.js 15, featuring advanced chat capabilities, document processing, chart generation, and multimodal interactions.
+The Vespera Systems platform — a Next.js 15 app that serves the quant strategy lab and product at [vespera.systems](https://vespera.systems) and the corporate site at [vesperasystems.com](https://vesperasystems.com) from a single codebase (host-based routing in `middleware.ts`). Features include the Strategy Lab (`/lab`), the Venture Graph explorer (`/graph`), AI chat, document processing, chart generation, and multimodal interactions.
 
 ## 🚀 Features
 
@@ -135,7 +135,7 @@ The application supports multi-tenant architecture with specialized AI prompts f
 
    ```bash
    git clone <repository-url>
-   cd vespera-ai-chatbot
+   cd vespera.systems
    ```
 
 2. **Install dependencies**
