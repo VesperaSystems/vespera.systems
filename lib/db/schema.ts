@@ -194,7 +194,7 @@ export type Stream = InferSelectModel<typeof stream>;
 
 export const userMessageCounts = pgTable('user_message_counts', {
   id: serial('id').primaryKey(),
-  userId: text('user_id')
+  userId: uuid('user_id')
     .notNull()
     .references(() => user.id),
   date: timestamp('date').notNull().defaultNow(),
@@ -276,3 +276,50 @@ export const fileAccessLogs = pgTable('FileAccessLogs', {
 });
 
 export type FileAccessLog = InferSelectModel<typeof fileAccessLogs>;
+
+// Strategy Lab: backtest runs pushed from Colab notebooks or the scheduled runner
+export const backtestRuns = pgTable('BacktestRuns', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  strategy: varchar('strategy', { length: 100 }).notNull(), // e.g. 'moving-average-crossover'
+  ticker: varchar('ticker', { length: 20 }).notNull(),
+  params: json('params').notNull(), // e.g. { short_window: 50, long_window: 200 }
+  startDate: varchar('startDate', { length: 10 }).notNull(), // ISO date
+  endDate: varchar('endDate', { length: 10 }).notNull(),
+  metrics: json('metrics').notNull(), // { strategy: {...}, buy_hold: {...} }
+  latestSignal: json('latestSignal'), // { state, last_event, event_date, close, as_of }
+  equityCurve: json('equityCurve'), // [{ date, strategy, buyHold }] downsampled
+  source: varchar('source', { length: 20 }).notNull().default('colab'), // 'colab' | 'scheduled' | 'manual'
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+});
+
+export type BacktestRun = InferSelectModel<typeof backtestRuns>;
+
+// Strategy Lab: tickers being watched for trade signals
+export const watchlist = pgTable('Watchlist', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  ticker: varchar('ticker', { length: 20 }).notNull(),
+  strategy: varchar('strategy', { length: 100 }).notNull(),
+  params: json('params'), // strategy params override, null = defaults
+  active: boolean('active').notNull().default(true),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+});
+
+export type WatchlistEntry = InferSelectModel<typeof watchlist>;
+
+// Strategy Lab: crossover/trade signals detected by the runner
+export const signals = pgTable('Signals', {
+  id: uuid('id').primaryKey().notNull().defaultRandom(),
+  strategy: varchar('strategy', { length: 100 }).notNull(),
+  ticker: varchar('ticker', { length: 20 }).notNull(),
+  params: json('params'),
+  state: varchar('state', { length: 10 }).notNull(), // 'long' | 'short' | 'flat'
+  lastEvent: varchar('lastEvent', { length: 30 }), // 'golden_cross' | 'death_cross'
+  eventDate: varchar('eventDate', { length: 10 }), // ISO date of the crossover
+  close: varchar('close', { length: 30 }), // latest close as string to avoid float drift
+  asOf: varchar('asOf', { length: 10 }).notNull(), // data date the snapshot reflects
+  isNewEvent: boolean('isNewEvent').notNull().default(false), // crossover happened since last run
+  notifiedAt: timestamp('notifiedAt'), // set once a notification was sent
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+});
+
+export type Signal = InferSelectModel<typeof signals>;

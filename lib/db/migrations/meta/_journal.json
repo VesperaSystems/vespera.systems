@@ -12,85 +12,120 @@
     {
       "idx": 1,
       "version": "7",
+      "when": 1729000000000,
+      "tag": "0001_add_is_admin",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
       "when": 1730207363999,
       "tag": "0001_sparkling_blue_marvel",
       "breakpoints": true
     },
     {
-      "idx": 2,
+      "idx": 3,
       "version": "7",
       "when": 1730725226313,
       "tag": "0002_wandering_riptide",
       "breakpoints": true
     },
     {
-      "idx": 3,
+      "idx": 4,
       "version": "7",
       "when": 1733403031014,
       "tag": "0003_cloudy_glorian",
       "breakpoints": true
     },
     {
-      "idx": 4,
+      "idx": 5,
       "version": "7",
       "when": 1733945232355,
       "tag": "0004_odd_slayback",
       "breakpoints": true
     },
     {
-      "idx": 5,
+      "idx": 6,
       "version": "7",
       "when": 1741934630596,
       "tag": "0005_wooden_whistler",
       "breakpoints": true
     },
     {
-      "idx": 6,
+      "idx": 7,
       "version": "7",
       "when": 1746118166211,
       "tag": "0006_marvelous_frog_thor",
       "breakpoints": true
     },
     {
-      "idx": 7,
+      "idx": 8,
       "version": "7",
       "when": 1750945974680,
       "tag": "0007_add_subscription_types",
       "breakpoints": true
     },
     {
-      "idx": 8,
+      "idx": 9,
       "version": "7",
       "when": 1751036383713,
       "tag": "0008_dazzling_betty_brant",
       "breakpoints": true
     },
     {
-      "idx": 9,
+      "idx": 10,
+      "version": "7",
+      "when": 1752000000000,
+      "tag": "0009_add_organization_fields",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
       "version": "7",
       "when": 1754419659467,
       "tag": "0009_flawless_red_shift",
       "breakpoints": true
     },
     {
-      "idx": 10,
+      "idx": 12,
+      "version": "7",
+      "when": 1754500000000,
+      "tag": "0010_add_tenant_table",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
       "version": "7",
       "when": 1754902898817,
       "tag": "0010_left_gamma_corps",
       "breakpoints": true
     },
     {
-      "idx": 11,
+      "idx": 14,
       "version": "7",
       "when": 1754986610547,
       "tag": "0011_unknown_bloodstorm",
       "breakpoints": true
     },
     {
-      "idx": 12,
+      "idx": 15,
       "version": "7",
       "when": 1755162355336,
       "tag": "0012_puzzling_shen",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1785008809064,
+      "tag": "0013_sparkling_saracen",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1785010387565,
+      "tag": "0014_fix_push_drift",
       "breakpoints": true
     }
   ]

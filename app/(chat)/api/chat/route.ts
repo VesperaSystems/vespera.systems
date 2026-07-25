@@ -26,6 +26,7 @@ import { createDocument } from '@/lib/ai/tools/create-document';
 import { updateDocument } from '@/lib/ai/tools/update-document';
 import { requestSuggestions } from '@/lib/ai/tools/request-suggestions';
 import { getWeather } from '@/lib/ai/tools/get-weather';
+import { getBacktestResults } from '@/lib/ai/tools/get-backtest-results';
 import { createChart } from '@/lib/ai/tools/create-chart';
 import { analyzeDocument } from '@/lib/ai/tools/analyze-document';
 import { extractDocumentText } from '@/lib/ai/tools/extract-document-text';
@@ -320,6 +321,7 @@ export async function POST(request: Request) {
               ? []
               : [
                   'getWeather',
+                  'getBacktestResults',
                   'createDocument',
                   'updateDocument',
                   'requestSuggestions',
@@ -331,6 +333,7 @@ export async function POST(request: Request) {
           experimental_generateMessageId: generateUUID,
           tools: {
             getWeather,
+            getBacktestResults,
             createDocument: createDocument({ session, dataStream }),
             updateDocument: updateDocument({ session, dataStream }),
             requestSuggestions: requestSuggestions({

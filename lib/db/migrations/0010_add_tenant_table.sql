@@ -9,22 +9,28 @@ CREATE TABLE IF NOT EXISTS "Tenant" (
 );
 
 -- Add tenantId column to User table
-ALTER TABLE "User" ADD COLUMN "tenantId" uuid REFERENCES "Tenant"("id");
+ALTER TABLE "User" ADD COLUMN IF NOT EXISTS "tenantId" uuid REFERENCES "Tenant"("id");
 
 -- Create index for tenant lookups
-CREATE INDEX "idx_user_tenant_id" ON "User" ("tenantId");
-CREATE INDEX "idx_tenant_name" ON "Tenant" ("name");
-CREATE INDEX "idx_tenant_type" ON "Tenant" ("tenantType");
+CREATE INDEX IF NOT EXISTS "idx_user_tenant_id" ON "User" ("tenantId");
+CREATE INDEX IF NOT EXISTS "idx_tenant_name" ON "Tenant" ("name");
+CREATE INDEX IF NOT EXISTS "idx_tenant_type" ON "Tenant" ("tenantType");
 
 -- Migrate existing organization data to tenant table
 -- This will create tenants based on existing organization data
 INSERT INTO "Tenant" ("name", "domain", "tenantType")
-SELECT DISTINCT 
+SELECT DISTINCT
   COALESCE("organizationName", 'Unnamed Organization') as name,
   "organizationDomain" as domain,
   "tenantType"
-FROM "User" 
-WHERE "organizationName" IS NOT NULL OR "organizationDomain" IS NOT NULL OR "tenantType" != 'quant';
+FROM "User" u
+WHERE ("organizationName" IS NOT NULL OR "organizationDomain" IS NOT NULL OR "tenantType" != 'quant')
+  AND NOT EXISTS (
+    SELECT 1 FROM "Tenant" t
+    WHERE t."name" = COALESCE(u."organizationName", 'Unnamed Organization')
+      AND t."domain" IS NOT DISTINCT FROM u."organizationDomain"
+      AND t."tenantType" = u."tenantType"
+  );
 
 -- Update User table to link to tenants
 UPDATE "User" 
