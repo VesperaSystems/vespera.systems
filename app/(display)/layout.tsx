@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Vespera Systems | The Intelligence Layer for Private Markets',
+  title: 'Vespera Systems | AI that tells you when to trade',
   description:
-    'Vespera Systems designs and delivers intelligence systems for family offices, private equity firms, and asset managers — AI research chat, spatial market graphs, and large-format office displays.',
+    'Vespera Systems builds narrow, sector-specialised models that combine quant technique with gathered market intelligence to signal investment timing — for venture capital, private equity, and family office teams.',
   alternates: {
     canonical: 'https://www.vesperasystems.com',
   },
@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.vesperasystems.com',
     siteName: 'Vespera Systems',
-    title: 'Vespera Systems | The Intelligence Layer for Private Markets',
+    title: 'Vespera Systems | AI that tells you when to trade',
     description:
-      'AI research chat, spatial market graphs, and large-format office displays for family offices, private equity firms, and asset managers.',
+      'Narrow, sector-specialised models that signal investment timing for venture capital, private equity, and family office teams.',
   },
 };
 
