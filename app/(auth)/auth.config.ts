@@ -1,6 +1,9 @@
 import { compare } from 'bcrypt-ts';
 import type NextAuth from 'next-auth';
 import type { DefaultSession } from 'next-auth';
+// Required so the `declare module 'next-auth/jwt'` augmentation below can
+// resolve the module now that nothing else imports from it.
+import type {} from 'next-auth/jwt';
 import Credentials from 'next-auth/providers/credentials';
 import { getUser } from '@/lib/db/queries';
 import { DUMMY_PASSWORD } from '@/lib/constants';

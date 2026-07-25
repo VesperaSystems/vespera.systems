@@ -10,6 +10,7 @@ import {
   gte,
   inArray,
   lt,
+  sql,
   type SQL,
 } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/postgres-js';
@@ -29,6 +30,7 @@ import {
   stream,
   userMessageCounts,
   subscriptionTypes,
+  ipUsage,
   tenant,
   type Tenant,
 } from './schema';
@@ -108,6 +110,62 @@ export async function createUser(
     console.error('Failed to create user in database');
     throw error;
   }
+}
+
+// Email-capture signups: a real user row keyed by email, but with no
+// password. These accounts can later be claimed via /register.
+export async function createPasswordlessUser(email: string) {
+  try {
+    const [created] = await db
+      .insert(user)
+      .values({ email, tenantType: 'quant', subscriptionType: 1 })
+      .returning();
+    return created;
+  } catch (error) {
+    console.error('Failed to create passwordless user in database');
+    throw error;
+  }
+}
+
+export async function setUserPassword(email: string, password: string) {
+  const hashedPassword = generateHashedPassword(password);
+  try {
+    return await db
+      .update(user)
+      .set({ password: hashedPassword })
+      .where(eq(user.email, email));
+  } catch (error) {
+    console.error('Failed to set user password in database');
+    throw error;
+  }
+}
+
+// Atomically bump a per-IP daily counter and report whether the caller is
+// still under `limit`. Counting happens even when denied, which is fine —
+// the row resets tomorrow (days are UTC).
+async function bumpIpCounter(
+  column: 'signups' | 'messages',
+  ip: string,
+  limit: number,
+): Promise<boolean> {
+  const day = new Date().toISOString().slice(0, 10);
+  const [row] = await db
+    .insert(ipUsage)
+    .values({ ip, day, signups: 0, messages: 0, [column]: 1 })
+    .onConflictDoUpdate({
+      target: [ipUsage.ip, ipUsage.day],
+      set: { [column]: sql`${ipUsage[column]} + 1` },
+    })
+    .returning({ value: ipUsage[column] });
+  return (row?.value ?? 1) <= limit;
+}
+
+export async function allowIpSignup(ip: string, limit: number) {
+  return bumpIpCounter('signups', ip, limit);
+}
+
+export async function allowIpMessage(ip: string, limit: number) {
+  return bumpIpCounter('messages', ip, limit);
 }
 
 export async function createGuestUser() {

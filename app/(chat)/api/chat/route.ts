@@ -31,9 +31,10 @@ import { createChart } from '@/lib/ai/tools/create-chart';
 import { analyzeDocument } from '@/lib/ai/tools/analyze-document';
 import { extractDocumentText } from '@/lib/ai/tools/extract-document-text';
 import type { DataStreamWriter } from 'ai';
-import { isChatEnabled, isProductionEnvironment } from '@/lib/constants';
+import { isProductionEnvironment } from '@/lib/constants';
 import { myProvider } from '@/lib/ai/providers';
 import { getEntitlements } from '@/lib/ai/entitlements';
+import { ipMaySendMessage } from '@/lib/rate-limit';
 import { postRequestBodySchema, type PostRequestBody } from './schema';
 import { geolocation } from '@vercel/functions';
 import type { Chat } from '@/lib/db/schema';
@@ -50,17 +51,6 @@ function getStreamContext() {
 }
 
 export async function POST(request: Request) {
-  if (!isChatEnabled) {
-    return new Response(
-      JSON.stringify({
-        error: 'Chat access is by invitation',
-        message:
-          'Email access@vesperasystems.com to request access to the Vespera research chat.',
-      }),
-      { status: 403, headers: { 'Content-Type': 'application/json' } },
-    );
-  }
-
   let requestBody: PostRequestBody;
 
   try {
@@ -112,7 +102,7 @@ export async function POST(request: Request) {
 
     if (
       entitlements.maxMessagesPerDay !== -1 &&
-      messageCount > entitlements.maxMessagesPerDay
+      messageCount >= entitlements.maxMessagesPerDay
     ) {
       return new Response(
         JSON.stringify({
@@ -121,6 +111,24 @@ export async function POST(request: Request) {
           message:
             'Please try again later or upgrade your subscription to continue chatting.',
           link: '/subscription',
+        }),
+        {
+          status: 429,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+    }
+
+    // Per-IP backstop so one person can't dodge the per-user cap by minting
+    // fresh email-capture accounts. Admins are exempt.
+    if (!session.user.isAdmin && !(await ipMaySendMessage(request.headers))) {
+      return new Response(
+        JSON.stringify({
+          error: 'Daily limit reached for your network',
+          message:
+            'This network has hit its daily message allowance. Please come back tomorrow.',
         }),
         {
           status: 429,

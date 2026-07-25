@@ -1,7 +1,7 @@
 import { compare } from 'bcrypt-ts';
-import NextAuth, { type Session } from 'next-auth';
+import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { getUser } from '@/lib/db/queries';
+import { createPasswordlessUser, getUser } from '@/lib/db/queries';
 import { authConfig } from './auth.config';
 import { DUMMY_PASSWORD } from '@/lib/constants';
 import { SUBSCRIPTION_TYPES } from '@/lib/ai/entitlements';
@@ -9,11 +9,13 @@ import { getDefaultSubscriptionTypeForUser } from '@/lib/ai/models';
 
 export const {
   handlers: { GET, POST },
-  auth: nextAuthAuth,
+  auth,
   signIn,
   signOut,
 } = NextAuth({
   ...authConfig,
+  // Keep people signed in for 90 days per device (HTTP-only cookie).
+  session: { maxAge: 60 * 60 * 24 * 90 },
   providers: [
     Credentials({
       credentials: {
@@ -58,6 +60,35 @@ export const {
         };
       },
     }),
+    // Public email-capture access: an email is enough to start chatting on
+    // the free tier. Only ever signs into passwordless rows — accounts that
+    // have a password must authenticate through the normal credentials flow.
+    Credentials({
+      id: 'email-capture',
+      credentials: {
+        email: { label: 'Email', type: 'email' },
+      },
+      async authorize({ email }: any) {
+        if (!email || typeof email !== 'string') return null;
+        const normalized = email.trim().toLowerCase();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)) return null;
+
+        const [existing] = await getUser(normalized);
+        if (existing?.password) return null;
+
+        const record = existing ?? (await createPasswordlessUser(normalized));
+
+        return {
+          id: record.id,
+          email: record.email,
+          subscriptionType:
+            Number(record.subscriptionType) || SUBSCRIPTION_TYPES.REGULAR,
+          isAdmin: false,
+          tenantType: record.tenantType || 'quant',
+          tenant: 'tenant' in record ? record.tenant : undefined,
+        };
+      },
+    }),
   ],
   callbacks: {
     ...authConfig.callbacks,
@@ -86,31 +117,3 @@ export const {
   },
 });
 
-// Temporary production login bypass. Set BYPASS_AUTH=true in Vercel env to
-// enable; every auth() call returns this session without a real login.
-// Remove this block (and the env var) to restore normal auth.
-const BYPASS_SESSION = {
-  user: {
-    id: '276f1931-4dd8-4422-b853-74bf358fb32d',
-    email: 'vespera-admin@mailinator.com',
-    subscriptionType: 3,
-    isAdmin: true,
-    tenantType: 'finance',
-    tenant: {
-      id: '2435a53e-d3dc-40c0-bb9a-5f5ffe65b5dd',
-      name: 'Default Organization',
-      domain: 'default',
-      tenantType: 'quant',
-      createdAt: new Date('2025-08-07T10:49:13.454676Z'),
-      updatedAt: new Date('2025-08-07T10:49:13.454676Z'),
-    },
-  },
-  expires: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
-} as Session;
-
-export async function auth(): Promise<Session | null> {
-  if (process.env.BYPASS_AUTH === 'true') {
-    return BYPASS_SESSION;
-  }
-  return nextAuthAuth();
-}

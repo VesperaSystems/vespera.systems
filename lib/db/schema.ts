@@ -217,6 +217,21 @@ export const subscriptionTypes = pgTable('subscription_types', {
 
 export type SubscriptionType = InferSelectModel<typeof subscriptionTypes>;
 
+// Per-IP daily counters backing the public-chat abuse limits. One row per
+// (ip, day); counters are bumped atomically via ON CONFLICT upserts.
+export const ipUsage = pgTable(
+  'ip_usage',
+  {
+    ip: varchar('ip', { length: 64 }).notNull(),
+    day: varchar('day', { length: 10 }).notNull(), // YYYY-MM-DD (UTC)
+    signups: integer('signups').notNull().default(0),
+    messages: integer('messages').notNull().default(0),
+  },
+  (table) => ({
+    pk: primaryKey({ columns: [table.ip, table.day] }),
+  }),
+);
+
 export const files = pgTable('Files', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),

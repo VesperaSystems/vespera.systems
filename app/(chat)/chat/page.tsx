@@ -5,19 +5,13 @@ import { getDefaultModelForUser } from '@/lib/ai/models';
 import { generateUUID } from '@/lib/utils';
 import { DataStreamHandler } from '@/components/data-stream-handler';
 import { auth } from '@/app/(auth)/auth';
-import { redirect } from 'next/navigation';
-import { isChatEnabled } from '@/lib/constants';
-import { ChatAccessGate } from '@/components/chat-access-gate';
+import { EmailAccessGate } from '@/components/email-access-gate';
 
 export default async function Page() {
-  if (!isChatEnabled) {
-    return <ChatAccessGate />;
-  }
-
   const session = await auth();
 
   if (!session?.user) {
-    redirect('/login');
+    return <EmailAccessGate />;
   }
 
   const id = generateUUID();
