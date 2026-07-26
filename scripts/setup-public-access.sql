@@ -29,7 +29,10 @@ SET "isAdmin" = false,
     "subscriptionType" = 1
 WHERE email = 'vespera-admin@mailinator.com';
 
--- 4. AFTER Daniel registers his own account at /register, promote it:
+-- 4. Remove the throwaway account used to verify the flow end-to-end.
+DELETE FROM "User" WHERE email = 'test-access-check@example.com';
+
+-- 5. AFTER Daniel registers his own account at /register, promote it:
 -- UPDATE "User"
 -- SET "isAdmin" = true, "subscriptionType" = 3
 -- WHERE email = 'daniel@danielmolloy.com';
