@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { BrandMark } from '@/components/site/brand-mark';
+import { MarketsMap } from '@/components/site/markets-map';
 import { companyFacingModuleIds, productModuleMap } from '@/lib/modules';
 
 const companyProof = [
@@ -109,6 +110,8 @@ export default function CompanyLandingPage() {
           </div>
         </div>
       </section>
+
+      <MarketsMap />
 
       <footer className="mx-auto w-full max-w-7xl px-6 pb-12 lg:px-10">
         <div className="flex flex-col items-center gap-4 border-t border-white/10 pt-8 text-center sm:flex-row sm:justify-between sm:text-left">
