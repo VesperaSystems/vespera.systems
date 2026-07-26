@@ -94,12 +94,6 @@ export function SidebarUserNav({ user }: { user: User }) {
             </DropdownMenuItem>
             <DropdownMenuItem
               className="cursor-pointer"
-              onSelect={() => router.push('/pricing')}
-            >
-              Pricing
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              className="cursor-pointer"
               onSelect={() => router.push('/faq')}
             >
               FAQ

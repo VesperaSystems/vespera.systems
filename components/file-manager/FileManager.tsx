@@ -15,7 +15,6 @@ import {
   TrashIcon,
   RotateCcwIcon,
   Trash2Icon,
-  HistoryIcon,
 } from '@/components/icons';
 import { FileBox } from './FileBox';
 import { TreeView, defaultTreeViewItems } from './TreeView';
