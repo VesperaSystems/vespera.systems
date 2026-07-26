@@ -33,11 +33,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Product domains serve the AI chat at the root; the company domain keeps
-  // the corporate landing page that owns `/` in the app tree.
+  // Product domains serve the public read-only results page at the root;
+  // the workbench (chat) lives at /chat behind the email gate. The company
+  // domain keeps the corporate landing page that owns `/` in the app tree.
   if (pathname === '/' && !isCompanyHost(request.headers.get('host'))) {
     const url = request.nextUrl.clone();
-    url.pathname = '/chat';
+    url.pathname = '/home';
     return NextResponse.rewrite(url);
   }
 
