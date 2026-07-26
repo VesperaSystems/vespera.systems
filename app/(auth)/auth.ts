@@ -40,15 +40,13 @@ export const {
         const passwordsMatch = await compare(password, user.password);
         if (!passwordsMatch) return null;
 
-        // Automatically assign enterprise subscription to legal users
-        const subscriptionType = getDefaultSubscriptionTypeForUser(
-          user.tenantType,
-        );
-        const validSubscriptionType = Object.values(
-          SUBSCRIPTION_TYPES,
-        ).includes(subscriptionType as 1 | 2 | 3)
-          ? subscriptionType
-          : SUBSCRIPTION_TYPES.REGULAR;
+        // Prefer the tier stored on the user row (set via admin/upgrades);
+        // fall back to the tenant-type default for rows that predate it.
+        const storedSubscriptionType = Number(user.subscriptionType);
+        const validSubscriptionType =
+          storedSubscriptionType > 0
+            ? storedSubscriptionType
+            : getDefaultSubscriptionTypeForUser(user.tenantType);
 
         return {
           id: user.id,
