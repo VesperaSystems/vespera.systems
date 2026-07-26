@@ -52,7 +52,7 @@ export function AppSidebar({ user }: { user: User | undefined }) {
           <div className="flex flex-row items-center justify-between px-2">
             <div className="flex flex-row items-center gap-2.5">
               <Link
-                href="/"
+                href="/chat"
                 onClick={() => {
                   setOpenMobile(false);
                   router.refresh();

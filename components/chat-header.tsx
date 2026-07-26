@@ -60,15 +60,15 @@ function PureChatHeader({
               variant="outline"
               className="order-2 ml-auto h-fit px-2 md:order-1 md:ml-0 md:px-2"
               onClick={() => {
-                router.push('/');
+                router.push('/chat');
                 router.refresh();
               }}
             >
               <PlusIcon size={16} />
-              <span className="md:sr-only">Wall Display</span>
+              <span className="md:sr-only">New chat</span>
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Wall Display</TooltipContent>
+          <TooltipContent>New chat</TooltipContent>
         </Tooltip>
       )}
 

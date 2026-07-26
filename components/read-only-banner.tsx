@@ -35,7 +35,7 @@ export function ReadOnlyBanner({
             asChild
             className="text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-700 hover:bg-blue-100 dark:hover:bg-blue-900"
           >
-            <Link href="/">
+            <Link href="/chat">
               <LockIcon size={14} />
               Start Your Own Chat
             </Link>

@@ -62,7 +62,7 @@ export function MissionControlConfigPanel() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline" className="border-[rgba(255,255,255,0.16)] bg-transparent text-foreground hover:bg-accent/60">
-              <Link href="/">Back to graph</Link>
+              <Link href="/graph">Back to graph</Link>
             </Button>
             <Button asChild className="bg-[rgba(255,255,255,0.12)] text-[rgba(250,250,250,0.94)] hover:bg-[rgba(255,255,255,0.18)]">
               <Link href="/admin">Open admin</Link>
