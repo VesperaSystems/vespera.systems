@@ -22,6 +22,26 @@ export const getBacktestResults = tool({
     limit: z.number().min(1).max(20).default(5),
   }),
   execute: async ({ strategy, ticker, limit }) => {
+    try {
+      return await queryLab({ strategy, ticker, limit });
+    } catch (error) {
+      // A lab-store outage must degrade to a message the model can relay,
+      // not an AI_ToolExecutionError that kills the whole response stream.
+      console.error('getBacktestResults failed:', error);
+      return {
+        message:
+          'The Strategy Lab data store is unavailable right now, so stored backtest results could not be retrieved. Answer from general knowledge and suggest checking /lab later.',
+      };
+    }
+  },
+});
+
+async function queryLab({
+  strategy,
+  ticker,
+  limit,
+}: { strategy?: string; ticker?: string; limit: number }) {
+  {
     const runConditions = [];
     if (strategy) runConditions.push(eq(backtestRuns.strategy, strategy));
     if (ticker)
@@ -71,5 +91,5 @@ export const getBacktestResults = tool({
     }
 
     return { runs, latestSignals };
-  },
-});
+  }
+}
