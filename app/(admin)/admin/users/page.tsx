@@ -22,6 +22,7 @@ interface User {
   organizationDomain?: string;
   subscriptionType: number;
   isAdmin: boolean;
+  hasPassword: boolean;
   tenantId?: string;
   tenant?: {
     id: string;
@@ -132,6 +133,36 @@ export default function UsersPage() {
 
   const handleCancel = () => {
     setEditingUser(null);
+  };
+
+  const handleResetPassword = async (userId: string, email: string) => {
+    if (
+      !window.confirm(
+        `Reset the password for ${email}?\n\nTheir current password stops working immediately. They sign back in by entering their email on the chat gate, and set a new password at /register.`,
+      )
+    ) {
+      return;
+    }
+    try {
+      const response = await fetch(
+        `/api/admin/users/${userId}/reset-password`,
+        { method: 'POST' },
+      );
+      if (response.ok) {
+        toast({
+          type: 'success',
+          description: `Password cleared for ${email}. They can set a new one at /register.`,
+        });
+        fetchUsers();
+      } else {
+        toast({
+          type: 'error',
+          description: (await response.text()) || 'Failed to reset password',
+        });
+      }
+    } catch (error) {
+      toast({ type: 'error', description: 'Error resetting password' });
+    }
   };
 
   if (loading) {
@@ -290,7 +321,21 @@ export default function UsersPage() {
                   <div>
                     <strong>Tenant Type:</strong> {user.tenantType}
                   </div>
-                  <Button onClick={() => handleEdit(user)}>Edit</Button>
+                  <div>
+                    <strong>Password:</strong>{' '}
+                    {user.hasPassword ? 'Set' : 'None (email-gate access only)'}
+                  </div>
+                  <div className="flex gap-2">
+                    <Button onClick={() => handleEdit(user)}>Edit</Button>
+                    {user.hasPassword && (
+                      <Button
+                        variant="outline"
+                        onClick={() => handleResetPassword(user.id, user.email)}
+                      >
+                        Reset password
+                      </Button>
+                    )}
+                  </div>
                 </div>
               )}
             </CardContent>

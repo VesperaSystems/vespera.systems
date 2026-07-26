@@ -1,7 +1,7 @@
 import { auth } from '@/app/(auth)/auth';
 import { db } from '@/lib/db';
 import { user, tenant } from '@/lib/db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, isNotNull } from 'drizzle-orm';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
@@ -24,6 +24,7 @@ export async function GET(request: Request) {
         subscriptionType: user.subscriptionType,
         tenantType: user.tenantType,
         tenantId: user.tenantId,
+        hasPassword: isNotNull(user.password),
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
         tenant: {
