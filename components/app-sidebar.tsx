@@ -73,13 +73,9 @@ export function AppSidebar({ user }: { user: User | undefined }) {
                 </span>
               </Link>
               {session?.user && session.user.subscriptionType !== undefined && (
-                <Link
-                  href="/pricing"
-                  onClick={() => setOpenMobile(false)}
-                  className="rounded-md border border-red-100 bg-red-50 px-2 py-0.5 text-sm font-medium text-red-500 transition-colors hover:bg-red-100 dark:border-red-900/30 dark:bg-red-950/30 dark:hover:bg-red-950/50"
-                >
+                <span className="rounded-md border border-red-100 bg-red-50 px-2 py-0.5 text-sm font-medium text-red-500 dark:border-red-900/30 dark:bg-red-950/30">
                   {getSubscriptionTypeName(Number(session.user.subscriptionType))}
-                </Link>
+                </span>
               )}
             </div>
           </div>

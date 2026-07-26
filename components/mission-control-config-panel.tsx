@@ -190,9 +190,6 @@ export function MissionControlConfigPanel() {
             <Button onClick={() => persist(defaultMissionControlConfig)} variant="outline" className="border-[rgba(255,255,255,0.16)] bg-transparent text-foreground hover:bg-accent/60">
               Reset defaults
             </Button>
-            <Button asChild className="bg-[rgba(255,255,255,0.12)] text-[rgba(250,250,250,0.94)] hover:bg-[rgba(255,255,255,0.18)]">
-              <Link href="/console">Open analysis console</Link>
-            </Button>
           </div>
         </section>
       </div>

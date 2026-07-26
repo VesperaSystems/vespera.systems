@@ -106,87 +106,8 @@ export function DataStreamHandler({ id }: { id: string }) {
               status: 'idle',
             };
 
-          case 'redirect-to-json-editor':
-            // Handle redirect to legal analysis editor
-            console.log(
-              '🔄 DataStreamHandler: Received redirect-to-json-editor command',
-            );
-            console.log('📋 Redirect data:', delta.content);
-
-            try {
-              if (delta.content?.analysisResult) {
-                // Store the analysis data in sessionStorage
-                try {
-                  sessionStorage.setItem(
-                    'legalAnalysisData',
-                    JSON.stringify({
-                      analysisResult: delta.content.analysisResult,
-                      fileUrl: delta.content.fileUrl,
-                      fileName: delta.content.fileName,
-                    }),
-                  );
-                  console.log(
-                    '💾 DataStreamHandler: Analysis data stored in sessionStorage',
-                  );
-                } catch (storageError) {
-                  console.error(
-                    '❌ DataStreamHandler: Failed to store data in sessionStorage:',
-                    storageError,
-                  );
-                  // Continue with redirect even if storage fails
-                }
-
-                console.log(
-                  '🚀 DataStreamHandler: Redirecting to legal analysis editor',
-                );
-
-                // Use a small delay to ensure the data is stored before redirect
-                setTimeout(() => {
-                  try {
-                    if (typeof window !== 'undefined') {
-                      window.location.href = '/legal-analysis-editor';
-                    } else {
-                      console.error(
-                        '❌ DataStreamHandler: Window is not defined',
-                      );
-                    }
-                  } catch (redirectError) {
-                    console.error(
-                      '❌ DataStreamHandler: Redirect failed:',
-                      redirectError,
-                    );
-                    // Fallback: try to navigate programmatically
-                    if (typeof window !== 'undefined' && window.history) {
-                      try {
-                        window.history.pushState(
-                          {},
-                          '',
-                          '/legal-analysis-editor',
-                        );
-                        window.location.reload();
-                      } catch (fallbackError) {
-                        console.error(
-                          '❌ DataStreamHandler: Fallback redirect also failed:',
-                          fallbackError,
-                        );
-                      }
-                    }
-                  }
-                }, 100);
-              } else {
-                console.error(
-                  '❌ DataStreamHandler: No analysis result in redirect data',
-                );
-              }
-            } catch (error) {
-              console.error(
-                '❌ DataStreamHandler: Error handling redirect:',
-                error,
-              );
-            }
-
-            return draftArtifact;
-
+          // 'redirect-to-json-editor' removed with the legal analysis editor
+          // (contract review ships under APOSTL, not Vespera).
           default:
             return draftArtifact;
         }

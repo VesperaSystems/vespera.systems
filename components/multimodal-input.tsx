@@ -123,47 +123,6 @@ function PureMultimodalInput({
       return;
     }
 
-    // Check if this is a Legal tenant with document attachments and legal analysis request
-    const isLegalTenant = session.user.tenantType === 'legal';
-    const hasDocumentAttachments = attachments.some(
-      (attachment) =>
-        attachment.contentType?.includes('document') ||
-        attachment.contentType?.includes('pdf') ||
-        attachment.contentType?.includes('word') ||
-        attachment.contentType?.includes('text') ||
-        attachment.name?.toLowerCase().endsWith('.docx') ||
-        attachment.name?.toLowerCase().endsWith('.doc') ||
-        attachment.name?.toLowerCase().endsWith('.pdf') ||
-        attachment.name?.toLowerCase().endsWith('.txt'),
-    );
-    const isLegalAnalysisRequest =
-      input.toLowerCase().includes('legal') ||
-      input.toLowerCase().includes('contract') ||
-      input.toLowerCase().includes('agreement') ||
-      input.toLowerCase().includes('clause') ||
-      input.toLowerCase().includes('terms') ||
-      input.toLowerCase().includes('liability') ||
-      input.toLowerCase().includes('compliance');
-
-    if (isLegalTenant && hasDocumentAttachments && isLegalAnalysisRequest) {
-      console.log(
-        '🚀 Legal tenant with legal document analysis request - redirecting immediately',
-      );
-
-      // Store the document data for the legal analysis editor
-      const documentData = {
-        analysisResult: null, // Will be populated by the analysis
-        fileUrl: attachments[0].url,
-        fileName: attachments[0].name,
-      };
-
-      sessionStorage.setItem('legalAnalysisData', JSON.stringify(documentData));
-
-      // Redirect immediately to the legal analysis editor
-      window.location.href = '/legal-analysis-editor';
-      return;
-    }
-
     try {
       const { canSend, remaining } = await checkUserMessageLimit(
         session.user.id,
@@ -210,47 +169,6 @@ function PureMultimodalInput({
   };
 
   const submitForm = useCallback(() => {
-    // Check if this is a Legal tenant with document attachments and legal analysis request
-    const isLegalTenant = session?.user?.tenantType === 'legal';
-    const hasDocumentAttachments = attachments.some(
-      (attachment) =>
-        attachment.contentType?.includes('document') ||
-        attachment.contentType?.includes('pdf') ||
-        attachment.contentType?.includes('word') ||
-        attachment.contentType?.includes('text') ||
-        attachment.name?.toLowerCase().endsWith('.docx') ||
-        attachment.name?.toLowerCase().endsWith('.doc') ||
-        attachment.name?.toLowerCase().endsWith('.pdf') ||
-        attachment.name?.toLowerCase().endsWith('.txt'),
-    );
-    const isLegalAnalysisRequest =
-      input.toLowerCase().includes('legal') ||
-      input.toLowerCase().includes('contract') ||
-      input.toLowerCase().includes('agreement') ||
-      input.toLowerCase().includes('clause') ||
-      input.toLowerCase().includes('terms') ||
-      input.toLowerCase().includes('liability') ||
-      input.toLowerCase().includes('compliance');
-
-    if (isLegalTenant && hasDocumentAttachments && isLegalAnalysisRequest) {
-      console.log(
-        '🚀 Legal tenant with legal document analysis request - redirecting immediately (submitForm)',
-      );
-
-      // Store the document data for the legal analysis editor
-      const documentData = {
-        analysisResult: null, // Will be populated by the analysis
-        fileUrl: attachments[0].url,
-        fileName: attachments[0].name,
-      };
-
-      sessionStorage.setItem('legalAnalysisData', JSON.stringify(documentData));
-
-      // Redirect immediately to the legal analysis editor
-      window.location.href = '/legal-analysis-editor';
-      return;
-    }
-
     window.history.replaceState({}, '', `/chat/${chatId}`);
 
     handleSubmit(undefined, {

@@ -336,7 +336,6 @@ export function MissionControlDisplay() {
           <div className="mt-4 flex flex-col gap-3 text-sm text-[rgba(250,250,250,0.78)]">
             <Link href="/config" className="transition-colors hover:text-white">Open local display config</Link>
             <Link href="/admin" className="transition-colors hover:text-white">Open estate admin</Link>
-            <Link href="/console" className="transition-colors hover:text-white">Open analysis console</Link>
           </div>
         </div>
       </div>

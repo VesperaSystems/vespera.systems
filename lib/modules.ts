@@ -1,7 +1,14 @@
 // Product module descriptions surfaced on the corporate site (vesperasystems.com).
 // Ported from the retired market-graph repo's lib/modules.ts during consolidation.
 
-export type ProductModuleId = 'graph' | 'chat' | 'legal' | 'quant' | 'files' | 'config';
+export type ProductModuleId =
+  | 'graph'
+  | 'chat'
+  | 'legal'
+  | 'quant'
+  | 'signals'
+  | 'files'
+  | 'config';
 
 export interface ProductModule {
   id: ProductModuleId;
@@ -22,11 +29,27 @@ export const productModules: ProductModule[] = [
     status: 'planned',
   },
   {
-    id: 'chat',
-    label: 'AI analyst',
-    eyebrow: 'AI trade-timing signal',
+    id: 'quant',
+    label: 'Strategy Lab',
+    eyebrow: 'Open research',
     summary:
-      'A sector-specialised signal layer that tells you when to trade, built on quant technique and curated market intelligence — not a general-purpose chatbot.',
+      'Backtested strategies published with their method, data, and results — the working evidence behind every function we license.',
+    status: 'live',
+  },
+  {
+    id: 'signals',
+    label: 'Signal engine',
+    eyebrow: 'Trade timing',
+    summary:
+      'Validated strategies run daily; when a strike point fires, subscribers are alerted. The function, delivered live.',
+    status: 'live',
+  },
+  {
+    id: 'chat',
+    label: 'Research chat',
+    eyebrow: 'AI analyst',
+    summary:
+      'An assistant over our research: interrogate backtests and findings in plain English.',
     status: 'mvp',
   },
   {
@@ -38,19 +61,11 @@ export const productModules: ProductModule[] = [
     status: 'mvp',
   },
   {
-    id: 'quant',
-    label: 'Quant bench',
-    eyebrow: 'Python strategy engine',
-    summary:
-      'A Python and Jupyter workspace that pulls live strategies from vespera-strategies for backtest review, factor notes, and audit-ready artifacts.',
-    status: 'guarded',
-  },
-  {
     id: 'files',
     label: 'Files',
     eyebrow: 'Document estate',
     summary:
-      'A controlled surface for research, contracts, charts, uploads, and generated artifacts.',
+      'A controlled surface for research, charts, uploads, and generated artifacts.',
     status: 'mvp',
   },
   {
@@ -63,8 +78,9 @@ export const productModules: ProductModule[] = [
   },
 ];
 
-// Modules safe to surface on the public corporate site.
+// Modules safe to surface on the public corporate site, in narrative order:
+// the lab validates, the signal engine delivers, the chat explains.
 // 'legal' is deliberately excluded — contract review ships under APOSTL, not Vespera.
-export const companyFacingModuleIds: ProductModuleId[] = ['chat', 'quant', 'files'];
+export const companyFacingModuleIds: ProductModuleId[] = ['quant', 'signals', 'chat', 'files'];
 
 export const productModuleMap = new Map(productModules.map((module) => [module.id, module]));

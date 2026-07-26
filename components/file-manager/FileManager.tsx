@@ -357,20 +357,6 @@ export const FileManager = ({ className }: FileManagerProps) => {
                     </span>
                   </div>
                   <div className="col-span-1 flex items-center justify-end">
-                    <div className="flex gap-1">
-                      <Button
-                        size="sm"
-                        variant="ghost"
-                        className="size-8 p-0"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open(`/file-history/${file.id}`, '_blank');
-                        }}
-                        title="View History"
-                      >
-                        <HistoryIcon size={14} />
-                      </Button>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -460,16 +446,6 @@ export const FileManager = ({ className }: FileManagerProps) => {
                   </Button>
                 }
               />
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={() =>
-                  window.open(`/file-history/${selectedFile.id}`, '_blank')
-                }
-              >
-                <HistoryIcon size={16} />
-                View History
-              </Button>
               <Button
                 variant="destructive"
                 className="w-full"

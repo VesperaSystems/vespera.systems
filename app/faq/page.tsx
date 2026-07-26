@@ -29,10 +29,10 @@ export default function FAQPage() {
           <CardHeader>
             <CardTitle>How does the pricing work?</CardTitle>
             <CardDescription>
-              We offer three tiers: Core ($150/month), Professional
-              ($350/month), and Enterprise ($750/month). Each plan includes
-              different message limits and features. Annual and three-year
-              commitments come with additional discounts.
+              Each research function is licensed individually — terms are
+              negotiated directly with us based on the strategy, exclusivity,
+              and how you want the signal delivered. Email access to the
+              research chat is free with a daily message allowance.
             </CardDescription>
           </CardHeader>
         </Card>
@@ -72,14 +72,14 @@ export default function FAQPage() {
         <div className="text-center mt-12">
           <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
           <p className="text-muted-foreground mb-4">
-            Contact our support team or check out our pricing plans for more
-            details.
+            Get in touch and we&apos;ll walk you through the research and
+            licensing terms.
           </p>
           <a
-            href="/pricing"
+            href="mailto:hello@vespera.systems"
             className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
           >
-            View Pricing Plans
+            Contact us
           </a>
         </div>
       </div>

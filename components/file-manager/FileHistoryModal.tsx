@@ -269,21 +269,6 @@ export function FileHistoryModal({
                               </p>
                             </div>
                             <div className="flex gap-1">
-                              {version.type === 'document' && isLegalTenant && (
-                                <Button
-                                  size="sm"
-                                  variant="outline"
-                                  className="text-xs"
-                                  onClick={() =>
-                                    window.open(
-                                      `/legal-analysis-editor?documentId=${version.id}`,
-                                      '_blank',
-                                    )
-                                  }
-                                >
-                                  Open
-                                </Button>
-                              )}
                               {version.type === 'file' && (
                                 <Button
                                   size="sm"
@@ -389,15 +374,6 @@ export function FileHistoryModal({
 
             {/* Quick Actions */}
             <div className="flex justify-end gap-2 pt-4 border-t">
-              {/* Legal editor button removed - only accessible via direct URL */}
-              <Button
-                variant="outline"
-                onClick={() =>
-                  window.open(`/file-history/${fileHistory.file.id}`, '_blank')
-                }
-              >
-                View Full History
-              </Button>
               <Button variant="outline" onClick={onClose}>
                 Close
               </Button>
