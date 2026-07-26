@@ -270,7 +270,7 @@ export function MissionControlDisplay() {
 
       <div className="absolute inset-x-0 top-0 flex items-start justify-between gap-6 p-5 md:p-8">
         <div className="mission-panel max-w-xl">
-          <div className="hud-label">Vespera Systems</div>
+          <div className="hud-label">Vespera</div>
           <h1 className="mt-4 max-w-2xl text-3xl font-semibold tracking-[0.08em] text-[rgba(250,250,250,0.96)] md:text-5xl">
             Map how capital moves.
           </h1>

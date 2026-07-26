@@ -3,12 +3,34 @@ import Link from 'next/link';
 
 import { BrandMark } from '@/components/site/brand-mark';
 import { MarketsMap } from '@/components/site/markets-map';
+import { Float, Reveal } from '@/components/site/reveal';
 import { companyFacingModuleIds, productModuleMap } from '@/lib/modules';
 
 const companyProof = [
-  'Sector-specialised signals, built to sit alongside an LLM, not replace one.',
-  'Quant strategies backed by real, testable backtests — not a black box.',
-  'Built for VC, private equity, and family office desks.',
+  'A researcher network of PhD-level quants, commissioned per programme — the IP stays with Vespera.',
+  'Every function ships with its evidence: methodology, data, and backtests you can interrogate.',
+  'Built as UK R&D — qualifying research for R&D tax relief, with an Innovate UK application in progress.',
+];
+
+const howItWorks = [
+  {
+    step: '01',
+    title: 'Commission',
+    detail:
+      'We pay researchers to attack one precise question — a strike point on a specific public-market instrument. Not a thesis. A tradable answer.',
+  },
+  {
+    step: '02',
+    title: 'Validate',
+    detail:
+      'The resulting strategy is backtested and stress-checked in our Strategy Lab, with the method written up so a diligent allocator can pull it apart.',
+  },
+  {
+    step: '03',
+    title: 'License',
+    detail:
+      'Family offices and funds subscribe to the live signal or license the function outright — the output of a quant desk, without hiring one.',
+  },
 ];
 
 const companyModules = companyFacingModuleIds
@@ -38,19 +60,24 @@ export default function CompanyLandingPage() {
 
       <section className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 pb-16 pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:px-10 lg:pb-24 lg:pt-20">
         <div>
-          <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-300">
-            A Daniel Molloy Limited product
-          </span>
-          <h1 className="mt-8 max-w-6xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-7xl lg:text-8xl">
-            AI that tells you when to trade, not another chatbot.
-          </h1>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
-            Vespera Systems is a product of Daniel Molloy Limited, an investment-technology
-            consultancy serving venture capital, private equity, and family office teams. We build
-            narrow, sector-specialised models that combine quant technique with gathered market
-            intelligence to signal investment timing — deliberately not competing with
-            general-purpose LLMs.
-          </p>
+          <Reveal onMount>
+            <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-300">
+              Independent quant R&amp;D — London
+            </span>
+          </Reveal>
+          <Reveal onMount delay={0.1}>
+            <h1 className="mt-8 max-w-6xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-7xl lg:text-8xl">
+              We turn quant research into trade-timing signals.
+            </h1>
+          </Reveal>
+          <Reveal onMount delay={0.22}>
+            <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
+              Vespera Systems is an independent research and development company. We commission
+              PhD-level researchers to find strike points in public-market instruments, validate
+              and own the resulting strategies, and license them to family offices and funds —
+              investors who want a quant&apos;s edge without having to speak quant.
+            </p>
+          </Reveal>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="https://vespera.systems"
@@ -66,18 +93,17 @@ export default function CompanyLandingPage() {
             </Link>
           </div>
           <div className="mt-10 grid gap-3">
-            {companyProof.map((point) => (
-              <div
-                key={point}
-                className="hud-panel rounded-3xl px-5 py-4 text-sm leading-6 text-neutral-200"
-              >
-                {point}
-              </div>
+            {companyProof.map((point, index) => (
+              <Reveal key={point} onMount delay={0.34 + index * 0.09}>
+                <div className="hud-panel rounded-3xl px-5 py-4 text-sm leading-6 text-neutral-200">
+                  {point}
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
-        <div className="relative">
+        <Float className="relative">
           <div className="absolute -inset-8 rounded-[56px] bg-white/10 blur-3xl" />
           <div className="hud-panel relative overflow-hidden rounded-[42px] p-5">
             <div className="rounded-[32px] border border-white/10 bg-black/40 p-6">
@@ -108,6 +134,28 @@ export default function CompanyLandingPage() {
               </div>
             </div>
           </div>
+        </Float>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
+        <Reveal>
+          <p className="hud-label">How it works</p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
+            We sit between the researcher and the investor.
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
+          {howItWorks.map((item, index) => (
+            <Reveal key={item.step} delay={index * 0.12}>
+              <div className="hud-panel h-full rounded-3xl p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
+                  {item.step}
+                </p>
+                <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-neutral-400">{item.detail}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Vespera Systems | AI that tells you when to trade',
+  title: 'Vespera Systems | Independent quant R&D',
   description:
-    'Vespera Systems builds narrow, sector-specialised models that combine quant technique with gathered market intelligence to signal investment timing — for venture capital, private equity, and family office teams.',
+    'Vespera Systems is an independent quant research and development company in London. We commission PhD-level researchers to find strike points in public markets, validate and own the strategies, and license the signals to family offices and funds.',
   alternates: {
     canonical: 'https://www.vesperasystems.com',
   },
@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.vesperasystems.com',
     siteName: 'Vespera Systems',
-    title: 'Vespera Systems | AI that tells you when to trade',
+    title: 'Vespera Systems | Independent quant R&D',
     description:
-      'Narrow, sector-specialised models that signal investment timing for venture capital, private equity, and family office teams.',
+      'We commission quant researchers to find strike points in public markets, validate the strategies, and license the signals to family offices and funds.',
   },
 };
 

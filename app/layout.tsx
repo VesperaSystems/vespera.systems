@@ -9,9 +9,9 @@ import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vesperasystems.com'),
-  title: 'Vespera Systems | Intelligence Displays',
+  title: 'Vespera | Quant research workbench',
   description:
-    'Vespera Systems delivers AI research chat, spatial market graphs, and large-format intelligence displays for private markets and asset management.',
+    'Vespera is the research workbench behind Vespera Systems — AI research chat, strategy lab, and market graphs for quant research.',
 };
 
 export const viewport = {

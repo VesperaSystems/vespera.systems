@@ -1,3 +1,5 @@
+import { Reveal } from '@/components/site/reveal';
+
 const privateChain = [
   {
     name: 'Limited partners',
@@ -46,7 +48,7 @@ function Connector({ label }: { label: string }) {
 export function MarketsMap() {
   return (
     <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
-      <div className="max-w-3xl">
+      <Reveal className="max-w-3xl">
         <p className="hud-label">Where we sit</p>
         <h2 className="mt-3 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
           Two worlds of capital. We work in the one with prices.
@@ -60,10 +62,10 @@ export function MarketsMap() {
           <em>what</em> you buy. Vespera lives in that second world: research, tested strategies
           and signals about the moment to trade.
         </p>
-      </div>
+      </Reveal>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        <div className="hud-panel rounded-3xl p-6 opacity-80">
+        <Reveal className="hud-panel rounded-3xl p-6 opacity-80">
           <p className="hud-label">Private markets</p>
           <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-neutral-300">
             Relationships, not prices
@@ -83,9 +85,9 @@ export function MarketsMap() {
             Around every deal: law firms, fund administrators, auditors. The two worlds meet when a
             private company lists on an exchange — an IPO — and crosses into the world of prices.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="hud-panel rounded-3xl p-6">
+        <Reveal delay={0.12} className="hud-panel rounded-3xl p-6">
           <p className="hud-label">Public markets</p>
           <h3 className="mt-2 text-xl font-semibold tracking-[-0.03em]">
             Prices, timing — our focus
@@ -106,8 +108,8 @@ export function MarketsMap() {
                 Vespera
               </p>
               <p className="mt-1 text-sm leading-6 text-neutral-700">
-                Sector-specialised signals, built on tested quant strategies, that suggest when to
-                act. Published research lands here; the live workbench runs at{' '}
+                Commissioned research, validated in-house and licensed as live signals that suggest
+                when to act. Published findings land here; the research workbench runs at{' '}
                 <a href="https://vespera.systems" className="font-semibold underline">
                   vespera.systems
                 </a>
@@ -115,7 +117,7 @@ export function MarketsMap() {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -64,6 +64,7 @@ export const productModules: ProductModule[] = [
 ];
 
 // Modules safe to surface on the public corporate site.
-export const companyFacingModuleIds: ProductModuleId[] = ['chat', 'legal', 'quant', 'files'];
+// 'legal' is deliberately excluded — contract review ships under APOSTL, not Vespera.
+export const companyFacingModuleIds: ProductModuleId[] = ['chat', 'quant', 'files'];
 
 export const productModuleMap = new Map(productModules.map((module) => [module.id, module]));

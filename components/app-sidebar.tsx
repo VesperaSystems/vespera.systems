@@ -58,7 +58,7 @@ export function AppSidebar({ user }: { user: User | undefined }) {
                   router.refresh();
                 }}
                 className="rounded-md px-2.5 py-1.5 transition-colors hover:bg-muted/50"
-                aria-label="Vespera Systems home"
+                aria-label="Vespera home"
               >
                 <span className="flex items-center gap-2.5">
                   <Image
@@ -69,7 +69,7 @@ export function AppSidebar({ user }: { user: User | undefined }) {
                     priority
                     className="size-8"
                   />
-                  <span className="text-xl font-semibold tracking-tight">Vespera Systems</span>
+                  <span className="text-xl font-semibold tracking-tight">Vespera</span>
                 </span>
               </Link>
               {session?.user && session.user.subscriptionType !== undefined && (
