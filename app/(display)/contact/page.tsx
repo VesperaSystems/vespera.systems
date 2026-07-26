@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { BrandMark } from '@/components/site/brand-mark';
 
 export const metadata: Metadata = {
-  title: 'Contact - Vespera Systems',
-  description: 'Request a Vespera Systems private briefing or product demo.',
+  title: 'Contact - Vespera',
+  description: 'Request a Vespera private briefing or product demo.',
   alternates: { canonical: '/contact' },
 };
 
@@ -28,7 +28,7 @@ export default function ContactPage() {
             Request a private briefing.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
-            For demos, partnerships, hiring, or investor conversations, contact Vespera Systems
+            For demos, partnerships, hiring, or investor conversations, contact Vespera
             directly.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">

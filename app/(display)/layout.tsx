@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Vespera Systems | Independent quant R&D',
+  title: 'Vespera | Independent quant R&D',
   description:
-    'Vespera Systems is an independent quant research and development company in London. We commission PhD-level researchers to find strike points in public markets, validate and own the strategies, and license the signals to family offices and funds.',
+    'Vespera is an independent quant research and development company in London. We commission PhD-level researchers to find strike points in public markets, validate and own the strategies, and license the signals to family offices and funds.',
   alternates: {
     canonical: 'https://www.vesperasystems.com',
   },
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.vesperasystems.com',
     siteName: 'Vespera Systems',
-    title: 'Vespera Systems | Independent quant R&D',
+    title: 'Vespera | Independent quant R&D',
     description:
       'We commission quant researchers to find strike points in public markets, validate the strategies, and license the signals to family offices and funds.',
   },

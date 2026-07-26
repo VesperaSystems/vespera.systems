@@ -72,7 +72,7 @@ export default function CompanyLandingPage() {
           </Reveal>
           <Reveal onMount delay={0.22}>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
-              Vespera Systems is an independent research and development company. We commission
+              Vespera is an independent research and development company. We commission
               PhD-level researchers to find strike points in public-market instruments, validate
               and own the resulting strategies, and license them to family offices and funds —
               investors who want a quant&apos;s edge without having to speak quant.
@@ -171,7 +171,7 @@ export default function CompanyLandingPage() {
               height={32}
               className="h-8 w-8"
             />
-            <p className="text-sm text-neutral-400">Vespera Systems Ltd</p>
+            <p className="text-sm text-neutral-400">Vespera</p>
           </div>
           <a
             href="mailto:hello@vespera.systems"
