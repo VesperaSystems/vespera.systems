@@ -172,49 +172,92 @@ export default function CompanyLandingPage() {
         id="get-vespera"
         className="mx-auto w-full max-w-7xl scroll-mt-10 px-6 pb-20 lg:px-10 lg:pb-28"
       >
-        <Reveal>
-          <p className="hud-label">Get vespera</p>
-          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
-            Read a dataroom without uploading it.
-          </h2>
-          <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-300">
-            vespera reads a dataroom, cross-checks its claims, scores it against your investment
-            thesis, and suggests an indicative valuation range — with inference running locally
-            on Ollama. No account, no cloud upload, no third-party AI provider.
-          </p>
-        </Reveal>
-        <Reveal delay={0.12}>
-          <div className="hud-panel mt-8 max-w-3xl rounded-3xl p-5 font-mono text-sm">
-            <p className="text-neutral-500"># install</p>
-            <p className="mt-1 text-neutral-100">pip install vespera</p>
-            <p className="mt-3 text-neutral-500"># review a dataroom against your thesis</p>
-            <p className="mt-1 text-neutral-100">
-              vespera review ./dataroom --thesis my-thesis.md
-            </p>
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.92fr]">
+          <div>
+            <Reveal>
+              <p className="hud-label">Get vespera</p>
+              <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
+                Read a dataroom without uploading it.
+              </h2>
+              <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-300">
+                vespera reads a dataroom, cross-checks its claims, scores it against your
+                investment thesis, and suggests an indicative valuation range — with inference
+                running locally on Ollama. No account, no cloud upload, no third-party AI
+                provider.
+              </p>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <div className="hud-panel mt-8 max-w-3xl rounded-3xl p-5 font-mono text-sm">
+                <p className="text-neutral-500"># install</p>
+                <p className="mt-1 text-neutral-100">pip install vespera</p>
+                <p className="mt-3 text-neutral-500"># review a dataroom against your thesis</p>
+                <p className="mt-1 text-neutral-100">
+                  vespera review ./dataroom --thesis my-thesis.md
+                </p>
+              </div>
+              <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
+                <a
+                  href="https://github.com/VesperaSystems/vespera"
+                  className="rounded-full bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 transition hover:bg-neutral-200"
+                >
+                  View on GitHub
+                </a>
+                <a
+                  href="https://pypi.org/project/vespera/"
+                  className="rounded-full border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-200 transition hover:border-white/40"
+                >
+                  PyPI
+                </a>
+                <span className="text-xs text-neutral-500">Apache-2.0 · runs on your laptop</span>
+              </div>
+              <p className="mt-5 max-w-3xl text-sm leading-6 text-neutral-500">
+                Not a terminal person? A one-click desktop version is on the way —{' '}
+                <a
+                  href="mailto:hello@vespera.systems"
+                  className="underline hover:text-neutral-300"
+                >
+                  email us
+                </a>{' '}
+                and we&apos;ll let you know when it lands, or set it up for your team in the
+                meantime.
+              </p>
+            </Reveal>
           </div>
-          <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
-            <a
-              href="https://github.com/VesperaSystems/vespera"
-              className="rounded-full bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 transition hover:bg-neutral-200"
-            >
-              View on GitHub
-            </a>
-            <a
-              href="https://pypi.org/project/vespera/"
-              className="rounded-full border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-200 transition hover:border-white/40"
-            >
-              PyPI
-            </a>
-            <span className="text-xs text-neutral-500">Apache-2.0 · runs on your laptop</span>
-          </div>
-          <p className="mt-5 max-w-3xl text-sm leading-6 text-neutral-500">
-            Not a terminal person? A one-click desktop version is on the way —{' '}
-            <a href="mailto:hello@vespera.systems" className="underline hover:text-neutral-300">
-              email us
-            </a>{' '}
-            and we&apos;ll let you know when it lands, or set it up for your team in the meantime.
-          </p>
-        </Reveal>
+          <Reveal delay={0.2}>
+            <div className="hud-panel rounded-[32px] p-3">
+              <div className="aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-black/40">
+                <iframe
+                  src="https://www.loom.com/embed/4fbb590c00754501a8459f874ecbdb93"
+                  title="Vespera — local-first AI for due diligence (3-minute demo)"
+                  loading="lazy"
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              </div>
+              <p className="px-3 py-3 text-xs uppercase tracking-[0.18em] text-neutral-500">
+                Watch the 3-minute demo
+              </p>
+            </div>
+          </Reveal>
+        </div>
+        <script
+          type="application/ld+json"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: static VideoObject JSON-LD, no user input
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'VideoObject',
+              name: 'Vespera — local-first AI for due diligence',
+              description:
+                'A 3-minute demo of vespera, the free, open-source CLI that reads a dataroom, cross-checks its claims, and scores it against your investment thesis — locally, without your documents ever leaving your machine.',
+              thumbnailUrl:
+                'https://cdn.loom.com/sessions/thumbnails/4fbb590c00754501a8459f874ecbdb93-22d6d2acd9e749ef-full.jpg',
+              duration: 'PT2M58S',
+              embedUrl: 'https://www.loom.com/embed/4fbb590c00754501a8459f874ecbdb93',
+              contentUrl: 'https://www.loom.com/share/4fbb590c00754501a8459f874ecbdb93',
+            }),
+          }}
+        />
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
