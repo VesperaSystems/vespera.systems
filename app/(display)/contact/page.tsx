@@ -44,10 +44,10 @@ export default function ContactPage() {
               hello@vespera.systems
             </a>
             <a
-              href="https://vespera.systems"
+              href="/#get-vespera"
               className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:border-white/40 hover:bg-white/10"
             >
-              View the product
+              Get the tool
             </a>
           </div>
         </div>

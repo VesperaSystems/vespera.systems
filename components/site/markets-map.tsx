@@ -108,11 +108,11 @@ export function MarketsMap() {
               </p>
               <p className="mt-1 text-sm leading-6 text-neutral-700">
                 Free, open-source tools from the studio of Daniel Molloy Ltd, a technical
-                due-diligence consultancy. The tool lives at{' '}
-                <a href="https://vespera.systems" className="font-semibold underline">
-                  vespera.systems
-                </a>
-                ; integration and advisory at{' '}
+                due-diligence consultancy.{' '}
+                <a href="#get-vespera" className="font-semibold underline">
+                  Get the tool
+                </a>{' '}
+                on this page; integration and advisory at{' '}
                 <a href="https://danielmolloy.com" className="font-semibold underline">
                   danielmolloy.com
                 </a>

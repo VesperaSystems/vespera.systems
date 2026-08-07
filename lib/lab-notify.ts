@@ -38,7 +38,7 @@ export async function notifySignal(signal: Signal): Promise<boolean> {
         `<h2>${event} on ${signal.ticker}</h2>`,
         `<p>The <strong>${signal.strategy}</strong> strategy flipped to <strong>${signal.state}</strong> on ${signal.eventDate}.</p>`,
         `<p>Close: ${signal.close} (as of ${signal.asOf})</p>`,
-        `<p>This is a learning project signal, not financial advice. Review it in <a href="https://vespera.systems/lab">Mission Control</a> before acting.</p>`,
+        `<p>This is a learning project signal, not financial advice. Review it in <a href="https://www.vesperasystems.com/lab">the lab</a> before acting.</p>`,
       ].join('\n'),
     }),
   });

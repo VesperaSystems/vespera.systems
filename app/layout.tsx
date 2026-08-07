@@ -9,7 +9,7 @@ import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vesperasystems.com'),
-  title: 'vespera | Local-first due diligence CLI',
+  title: 'Vespera Systems | Local-first due diligence tools',
   description:
     'vespera is a free, open-source due-diligence CLI. It reads a dataroom, cross-checks its claims, and scores it against your thesis — locally, without your documents ever leaving your machine.',
 };

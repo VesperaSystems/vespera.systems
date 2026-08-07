@@ -44,10 +44,10 @@ export default function CompanyLandingPage() {
         <BrandMark />
         <nav className="flex items-center gap-2">
           <a
-            href="https://vespera.systems"
+            href="#get-vespera"
             className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/10"
           >
-            See what we do
+            Get vespera
           </a>
           <Link
             href="/contact"
@@ -81,10 +81,10 @@ export default function CompanyLandingPage() {
           </Reveal>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
-              href="https://vespera.systems"
+              href="#get-vespera"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-neutral-950 transition hover:bg-neutral-200"
             >
-              See what we do
+              Get vespera
             </a>
             <a
               href="https://danielmolloy.com"
@@ -136,6 +136,55 @@ export default function CompanyLandingPage() {
             </div>
           </div>
         </Float>
+      </section>
+
+      <section
+        id="get-vespera"
+        className="mx-auto w-full max-w-7xl scroll-mt-10 px-6 pb-20 lg:px-10 lg:pb-28"
+      >
+        <Reveal>
+          <p className="hud-label">Get vespera</p>
+          <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
+            Read a dataroom without uploading it.
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-300">
+            vespera reads a dataroom, cross-checks its claims, scores it against your investment
+            thesis, and suggests an indicative valuation range — with inference running locally
+            on Ollama. No account, no cloud upload, no third-party AI provider.
+          </p>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <div className="hud-panel mt-8 max-w-3xl rounded-3xl p-5 font-mono text-sm">
+            <p className="text-neutral-500"># install</p>
+            <p className="mt-1 text-neutral-100">pip install vespera</p>
+            <p className="mt-3 text-neutral-500"># review a dataroom against your thesis</p>
+            <p className="mt-1 text-neutral-100">
+              vespera review ./dataroom --thesis my-thesis.md
+            </p>
+          </div>
+          <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
+            <a
+              href="https://github.com/VesperaSystems/vespera"
+              className="rounded-full bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 transition hover:bg-neutral-200"
+            >
+              View on GitHub
+            </a>
+            <a
+              href="https://pypi.org/project/vespera/"
+              className="rounded-full border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-200 transition hover:border-white/40"
+            >
+              PyPI
+            </a>
+            <span className="text-xs text-neutral-500">Apache-2.0 · runs on your laptop</span>
+          </div>
+          <p className="mt-5 max-w-3xl text-sm leading-6 text-neutral-500">
+            Not a terminal person? A one-click desktop version is on the way —{' '}
+            <a href="mailto:hello@vespera.systems" className="underline hover:text-neutral-300">
+              email us
+            </a>{' '}
+            and we&apos;ll let you know when it lands, or set it up for your team in the meantime.
+          </p>
+        </Reveal>
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">

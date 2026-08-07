@@ -1,14 +1,15 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
-// Host-based routing:
-// - Company site (vesperasystems.com): the corporate landing page owns `/`.
-// - Product (vespera.systems, *.vercel.app previews, localhost): `/` is the AI chat.
-const COMPANY_HOSTS = new Set(['vesperasystems.com', 'www.vesperasystems.com']);
+// Single-site routing: vesperasystems.com is the canonical home for the
+// company and the vespera tool. The legacy product domain (vespera.systems)
+// permanently redirects here, path preserved.
+const CANONICAL_ORIGIN = 'https://www.vesperasystems.com';
+const LEGACY_HOSTS = new Set(['vespera.systems', 'www.vespera.systems']);
 
-function isCompanyHost(hostHeader: string | null) {
+function isLegacyHost(hostHeader: string | null) {
   if (!hostHeader) return false;
   const host = hostHeader.split(':')[0].toLowerCase();
-  return COMPANY_HOSTS.has(host);
+  return LEGACY_HOSTS.has(host);
 }
 
 export function middleware(request: NextRequest) {
@@ -17,6 +18,13 @@ export function middleware(request: NextRequest) {
   // Health check
   if (pathname.startsWith('/ping')) {
     return new Response('pong', { status: 200 });
+  }
+
+  // Legacy product domain → canonical .com, before any other handling so
+  // every old URL (pages and assets alike) carries over.
+  if (isLegacyHost(request.headers.get('host'))) {
+    const url = new URL(request.nextUrl.pathname + request.nextUrl.search, CANONICAL_ORIGIN);
+    return NextResponse.redirect(url, 308);
   }
 
   // Skip middleware for static files, source maps, and other non-chat routes
@@ -33,13 +41,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Product domains serve the public read-only results page at the root;
-  // the workbench (chat) lives at /chat behind the email gate. The company
-  // domain keeps the corporate landing page that owns `/` in the app tree.
-  if (pathname === '/' && !isCompanyHost(request.headers.get('host'))) {
+  // The old product landing page moved into the root page.
+  if (pathname === '/home') {
     const url = request.nextUrl.clone();
-    url.pathname = '/home';
-    return NextResponse.rewrite(url);
+    url.pathname = '/';
+    return NextResponse.redirect(url, 308);
   }
 
   return NextResponse.next();
