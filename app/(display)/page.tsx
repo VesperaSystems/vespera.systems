@@ -110,7 +110,7 @@ export default function CompanyLandingPage() {
             <div className="rounded-[32px] border border-white/10 bg-black/40 p-6">
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
                 <div>
-                  <p className="hud-label">Capability stack</p>
+                  <p className="hud-label">The tool</p>
                   <h2 className="mt-2 text-3xl font-semibold tracking-[-0.05em]">
                     Niche by design.
                   </h2>
@@ -132,6 +132,36 @@ export default function CompanyLandingPage() {
                     <p className="mt-2 text-sm leading-6 text-neutral-400">{module.summary}</p>
                   </article>
                 ))}
+                <article className="rounded-3xl border border-white/[0.08] bg-white/[0.045] p-5">
+                  <p className="hud-label">Open source</p>
+                  <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em]">
+                    Built in the open.
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-neutral-400">
+                    Read the code, star it, fork it, ship a pull request — the whole tool is
+                    public.
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    <a
+                      href="https://github.com/VesperaSystems/vespera"
+                      className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-950 transition hover:bg-neutral-200"
+                    >
+                      Star on GitHub
+                    </a>
+                    <a
+                      href="https://github.com/VesperaSystems/vespera/fork"
+                      className="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-200 transition hover:border-white/40"
+                    >
+                      Fork
+                    </a>
+                    <a
+                      href="https://pypi.org/project/vespera/"
+                      className="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-200 transition hover:border-white/40"
+                    >
+                      PyPI
+                    </a>
+                  </div>
+                </article>
               </div>
             </div>
           </div>

@@ -87,9 +87,9 @@ export const productModules: ProductModule[] = [
   },
 ];
 
-// Modules safe to surface on the public corporate site, in narrative order:
-// the DD tool leads, the lab and signal board are open experiments, the chat explains.
+// Modules surfaced on the public site. Only the DD tool — the lab, signal
+// board, and chat are internal/side projects and stay off the homepage.
 // 'legal' is deliberately excluded — contract review ships under APOSTL, not Vespera.
-export const companyFacingModuleIds: ProductModuleId[] = ['dd', 'quant', 'signals', 'chat'];
+export const companyFacingModuleIds: ProductModuleId[] = ['dd'];
 
 export const productModuleMap = new Map(productModules.map((module) => [module.id, module]));
