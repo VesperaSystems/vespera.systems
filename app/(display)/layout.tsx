@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   description:
     'Vespera Systems is the software studio of Daniel Molloy Ltd, a technical due-diligence consultancy. We build free, open-source tools that help investors and lawyers read deals faster — starting with vespera, a local-first due-diligence CLI that never uploads your documents.',
   alternates: {
-    canonical: 'https://www.vesperasystems.com',
+    canonical: 'https://vesperasystems.com',
   },
   openGraph: {
     type: 'website',
-    url: 'https://www.vesperasystems.com',
+    url: 'https://vesperasystems.com',
     siteName: 'Vespera Systems',
     title: 'Vespera | Free tools for dealmakers',
     description:

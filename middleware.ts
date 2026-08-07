@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 // Single-site routing: vesperasystems.com is the canonical home for the
 // company and the vespera tool. The legacy product domain (vespera.systems)
 // permanently redirects here, path preserved.
-const CANONICAL_ORIGIN = 'https://www.vesperasystems.com';
+const CANONICAL_ORIGIN = 'https://vesperasystems.com';
 const LEGACY_HOSTS = new Set(['vespera.systems', 'www.vespera.systems']);
 
 function isLegacyHost(hostHeader: string | null) {
