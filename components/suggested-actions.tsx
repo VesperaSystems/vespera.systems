@@ -32,15 +32,15 @@ function PureSuggestedActions({
 
   const suggestedActions = [
     {
-      title: 'Map the capital relationships around',
-      label: ' frontier AI infrastructure in Europe',
-      action: 'Map the capital relationships around frontier AI infrastructure in Europe.',
+      title: 'What should I check in a dataroom',
+      label: ' before issuing a term sheet?',
+      action: 'What should I check in a dataroom before issuing a term sheet?',
       showAlways: true,
     },
     {
-      title: 'Show me the investor pathways connecting',
-      label: ' fintech founders to late-stage capital',
-      action: 'Show me the investor pathways connecting fintech founders to late-stage capital.',
+      title: 'Draft a technical due-diligence checklist',
+      label: ' for a SaaS acquisition',
+      action: 'Draft a technical due-diligence checklist for a SaaS acquisition.',
       showAlways: true,
     },
     {
@@ -50,9 +50,9 @@ function PureSuggestedActions({
       showAlways: false,
     },
     {
-      title: 'Which sectors are seeing the strongest shift in',
-      label: ' capital concentration this quarter?',
-      action: 'Which sectors are seeing the strongest shift in capital concentration this quarter?',
+      title: 'Explain the moving-average crossover',
+      label: ' experiment in the Strategy Lab',
+      action: 'Explain the moving-average crossover experiment in the Strategy Lab.',
       showAlways: true,
     },
   ];

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Strategy Lab - Vespera Systems',
   description:
-    'The Vespera quant lab: algorithmic trading strategies built from first principles, with runnable notebooks, backtests, and honest limitations.',
+    'Open experiments from the Vespera studio: algorithmic trading strategies built from first principles, with runnable notebooks, backtests, and honest limitations.',
 };
 
 export default function LabLayout({

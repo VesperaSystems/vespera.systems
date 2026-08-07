@@ -7,29 +7,29 @@ import { Float, Reveal } from '@/components/site/reveal';
 import { companyFacingModuleIds, productModuleMap } from '@/lib/modules';
 
 const companyProof = [
-  'A researcher network of PhD-level quants, commissioned per programme — the IP stays with Vespera.',
-  'Every function ships with its evidence: methodology, data, and backtests you can interrogate.',
-  'Built as UK R&D — qualifying research for R&D tax relief, with an Innovate UK application in progress.',
+  'Free and open source, Apache-2.0 — install it, read the code, keep it forever.',
+  'Local-first by design: analysis runs on your machine, and your documents never leave it.',
+  'Built from real due-diligence engagements at Daniel Molloy Ltd, the consultancy behind Vespera.',
 ];
 
 const howItWorks = [
   {
     step: '01',
-    title: 'Commission',
+    title: 'Build',
     detail:
-      'We pay researchers to attack one precise question — a strike point on a specific public-market instrument. Not a thesis. A tradable answer.',
+      'We build the tools we kept wishing existed on real due-diligence engagements — starting with vespera, a CLI that reads a dataroom and cross-checks its claims.',
   },
   {
     step: '02',
-    title: 'Validate',
+    title: 'Give away',
     detail:
-      'The resulting strategy is backtested and stress-checked in our Strategy Lab, with the method written up so a diligent allocator can pull it apart.',
+      'Every tool is free and open source. No accounts, no tiers, no cloud upload — inference runs locally, so confidential deal documents stay on your machine.',
   },
   {
     step: '03',
-    title: 'License',
+    title: 'Integrate',
     detail:
-      'Family offices and funds subscribe to the live signal or license the function outright — the output of a quant desk, without hiring one.',
+      'When a firm wants Vespera wired into its own deal workflow — or a deeper technical review — Daniel Molloy Ltd does the integration and advisory work.',
   },
 ];
 
@@ -62,20 +62,21 @@ export default function CompanyLandingPage() {
         <div>
           <Reveal onMount>
             <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-300">
-              Independent quant R&amp;D — London
+              Software studio of Daniel Molloy Ltd
             </span>
           </Reveal>
           <Reveal onMount delay={0.1}>
             <h1 className="mt-8 max-w-6xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-7xl lg:text-8xl">
-              We turn quant research into trade-timing signals.
+              We build free tools for people who read deals.
             </h1>
           </Reveal>
           <Reveal onMount delay={0.22}>
             <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
-              Vespera is an independent research and development company. We commission
-              PhD-level researchers to find strike points in public-market instruments, validate
-              and own the resulting strategies, and license them to family offices and funds —
-              investors who want a quant&apos;s edge without having to speak quant.
+              Vespera is the software studio of Daniel Molloy Ltd, a technical due-diligence
+              consultancy for investment firms. We turn what we learn on real engagements into
+              free, open-source tools — starting with vespera, a local-first CLI that reads a
+              dataroom, cross-checks its claims, and scores it against your thesis without your
+              documents ever leaving your machine.
             </p>
           </Reveal>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -85,12 +86,12 @@ export default function CompanyLandingPage() {
             >
               See what we do
             </a>
-            <Link
-              href="/contact"
+            <a
+              href="https://danielmolloy.com"
               className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:border-white/40 hover:bg-white/10"
             >
-              Request private briefing
-            </Link>
+              Integration &amp; advisory
+            </a>
           </div>
           <div className="mt-10 grid gap-3">
             {companyProof.map((point, index) => (
@@ -115,7 +116,7 @@ export default function CompanyLandingPage() {
                   </h2>
                 </div>
                 <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-neutral-300">
-                  Live MVP
+                  Free on PyPI
                 </span>
               </div>
               <div className="mt-5 grid gap-3">
@@ -141,7 +142,7 @@ export default function CompanyLandingPage() {
         <Reveal>
           <p className="hud-label">How it works</p>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
-            We sit between the researcher and the investor.
+            The consultancy funds the tools. The tools stay free.
           </h2>
         </Reveal>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">

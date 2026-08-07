@@ -60,21 +60,48 @@ export default async function HomePage() {
 
         <section className="mt-16 max-w-3xl">
           <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-300">
-            The lab, live
+            Free &amp; open source
           </span>
           <h1 className="mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl">
-            Current signals from validated strategies.
+            Read a dataroom without uploading it.
           </h1>
           <p className="mt-5 text-lg leading-8 text-neutral-400">
-            Every strategy below is published with its method and backtests in
-            the research library, then run automatically after each US close.
-            This page is the read-only view — what fired, and when.
+            vespera is a local-first due-diligence CLI. It reads a dataroom,
+            cross-checks its claims, scores it against your investment thesis,
+            and suggests an indicative valuation range — with inference running
+            locally on Ollama. No account, no cloud upload, no third-party AI
+            provider. Your documents never leave your machine.
           </p>
+          <div className="mt-7 rounded-3xl border border-white/10 bg-white/[0.045] p-5 font-mono text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+            <p className="text-neutral-500"># install</p>
+            <p className="mt-1 text-neutral-100">pip install vespera</p>
+            <p className="mt-3 text-neutral-500"># review a dataroom against your thesis</p>
+            <p className="mt-1 text-neutral-100">
+              vespera review ./dataroom --thesis my-thesis.md
+            </p>
+          </div>
+          <div className="mt-5 flex flex-wrap items-center gap-4 text-sm">
+            <a
+              href="https://github.com/VesperaSystems/vespera"
+              className="rounded-full bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-950 transition hover:bg-neutral-200"
+            >
+              View on GitHub
+            </a>
+            <a
+              href="https://pypi.org/project/vespera/"
+              className="rounded-full border border-white/15 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-neutral-200 transition hover:border-white/40"
+            >
+              PyPI
+            </a>
+            <span className="text-xs text-neutral-500">
+              Apache-2.0 · runs on your laptop
+            </span>
+          </div>
         </section>
 
-        <section className="mt-12">
+        <section className="mt-14">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-            Live signal states
+            From the lab — live experiment states
           </p>
           {latestSignals.length === 0 ? (
             <p className="mt-4 text-sm text-neutral-400">
@@ -117,7 +144,7 @@ export default async function HomePage() {
         <section className="mt-14 grid gap-6 lg:grid-cols-2">
           <div className="rounded-3xl border border-white/10 bg-white/[0.045] p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-              Published research
+              From the lab — published experiments
             </p>
             <div className="mt-4 space-y-4">
               {labEntries.map((entry) => (
@@ -159,8 +186,8 @@ export default async function HomePage() {
               </div>
             )}
             <p className="mt-6 text-xs leading-5 text-neutral-500">
-              Curious how these are built and licensed? The company side lives
-              at{' '}
+              The lab is an open side project of the studio. Vespera is built by
+              Daniel Molloy Ltd — the company side lives at{' '}
               <a href="https://vesperasystems.com" className="underline">
                 vesperasystems.com
               </a>

@@ -9,9 +9,9 @@ import { SessionProvider } from 'next-auth/react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.vesperasystems.com'),
-  title: 'Vespera | Quant research workbench',
+  title: 'vespera | Local-first due diligence CLI',
   description:
-    'Vespera is the research workbench behind Vespera Systems — AI research chat, strategy lab, and market graphs for quant research.',
+    'vespera is a free, open-source due-diligence CLI. It reads a dataroom, cross-checks its claims, and scores it against your thesis — locally, without your documents ever leaving your machine.',
 };
 
 export const viewport = {

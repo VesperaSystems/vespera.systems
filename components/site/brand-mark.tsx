@@ -22,7 +22,7 @@ export function BrandMark({
           {product ? 'vespera.systems' : 'Vespera'}
         </span>
         <span className="block text-xs text-neutral-500 transition group-hover:text-neutral-200">
-          {product ? 'Research workbench' : 'Independent quant R&D'}
+          {product ? 'Local-first due diligence' : 'Free tools for dealmakers'}
         </span>
       </span>
     </Link>

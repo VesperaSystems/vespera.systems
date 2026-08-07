@@ -11,60 +11,76 @@ export default function FAQPage() {
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Find answers to common questions about Vespera Systems
+          Find answers to common questions about vespera and Vespera Systems
         </p>
       </div>
 
       <div className="max-w-4xl mx-auto space-y-8">
         <Card>
           <CardHeader>
-            <CardTitle>What is Vespera Systems?</CardTitle>
+            <CardTitle>What is vespera?</CardTitle>
             <CardDescription>
-              Vespera Systems is an operating system for understanding how capital moves through networks of companies, investors, founders, sectors, and time.
+              vespera is a free, open-source command-line tool for deal due
+              diligence. Point it at a dataroom and it reads the documents,
+              extracts key metrics, flags contradictions between documents,
+              scores the deal against your investment thesis, and suggests an
+              indicative valuation range. Install it with{' '}
+              <code>pip install vespera</code>.
             </CardDescription>
           </CardHeader>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>How does the pricing work?</CardTitle>
+            <CardTitle>Is it really free?</CardTitle>
             <CardDescription>
-              Each research function is licensed individually — terms are
-              negotiated directly with us based on the strategy, exclusivity,
-              and how you want the signal delivered. Email access to the
-              research chat is free with a daily message allowance.
+              Yes — Apache-2.0 licensed, no accounts, no tiers, no trials.
+              Vespera is built inside Daniel Molloy Ltd, a technical
+              due-diligence consultancy; the consultancy makes its money on
+              services, not the tool.
             </CardDescription>
           </CardHeader>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>What are the message limits?</CardTitle>
+            <CardTitle>Where do my documents go?</CardTitle>
             <CardDescription>
-              Core plan includes up to 200 messages per day, Professional plan
-              offers up to 1,000 messages per day, and Enterprise plan provides
-              unlimited messages.
+              Nowhere. vespera runs local models via Ollama on your own
+              machine. There is no cloud upload, no third-party AI provider,
+              and no telemetry on your documents — confidential deal material
+              never leaves your laptop.
             </CardDescription>
           </CardHeader>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>What kind of support do you offer?</CardTitle>
+            <CardTitle>Can you integrate it into our firm&apos;s workflow?</CardTitle>
             <CardDescription>
-              Core plan includes 9 am - 6 pm support, Professional plan offers
-              24/7 technical support, and Enterprise plan provides 24/7 all
-              support including dedicated account management.
+              Yes. Daniel Molloy Ltd — the consultancy behind Vespera — does
+              integration and advisory work for investment firms, from wiring
+              vespera into your deal process to full technical due-diligence
+              engagements. Start at{' '}
+              <a
+                href="https://danielmolloy.com"
+                className="font-medium underline"
+              >
+                danielmolloy.com
+              </a>
+              .
             </CardDescription>
           </CardHeader>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Can I try before I buy?</CardTitle>
+            <CardTitle>What is the Strategy Lab?</CardTitle>
             <CardDescription>
-              Yes! We offer a 14-day free trial for all plans. No credit card
-              required to start.
+              An open side project of the studio: algorithmic trading
+              experiments published with their method, runnable notebooks, and
+              backtests. It is research in the open, not a product — nothing in
+              the lab is investment advice.
             </CardDescription>
           </CardHeader>
         </Card>
@@ -72,8 +88,8 @@ export default function FAQPage() {
         <div className="text-center mt-12">
           <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
           <p className="text-muted-foreground mb-4">
-            Get in touch and we&apos;ll walk you through the research and
-            licensing terms.
+            Get in touch and we&apos;ll help you get set up — or point you at
+            the right person for integration work.
           </p>
           <a
             href="mailto:hello@vespera.systems"

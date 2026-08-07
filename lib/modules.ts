@@ -5,6 +5,7 @@ export type ProductModuleId =
   | 'graph'
   | 'chat'
   | 'legal'
+  | 'dd'
   | 'quant'
   | 'signals'
   | 'files'
@@ -29,19 +30,27 @@ export const productModules: ProductModule[] = [
     status: 'planned',
   },
   {
+    id: 'dd',
+    label: 'vespera CLI',
+    eyebrow: 'Due diligence',
+    summary:
+      'Reads a dataroom on your own machine: findings, key metrics, contradictions between documents, thesis fit, and an indicative valuation range. Free and open source.',
+    status: 'live',
+  },
+  {
     id: 'quant',
     label: 'Strategy Lab',
-    eyebrow: 'Open research',
+    eyebrow: 'Side lab',
     summary:
-      'Backtested strategies published with their method, data, and results — the working evidence behind every function we license.',
+      'Open experiments from the studio — algorithmic strategies published with their method, runnable notebooks, backtests, and honest limitations.',
     status: 'live',
   },
   {
     id: 'signals',
-    label: 'Signal engine',
-    eyebrow: 'Trade timing',
+    label: 'Signal board',
+    eyebrow: 'Side lab, live',
     summary:
-      'Validated strategies run daily; when a strike point fires, subscribers are alerted. The function, delivered live.',
+      'Lab strategies run automatically after each US close; a read-only board shows what fired and when. An open experiment, not a product.',
     status: 'live',
   },
   {
@@ -49,7 +58,7 @@ export const productModules: ProductModule[] = [
     label: 'Research chat',
     eyebrow: 'AI analyst',
     summary:
-      'An assistant over our research: interrogate backtests and findings in plain English.',
+      'An assistant over the studio research: ask about datarooms, diligence checklists, and lab findings in plain English.',
     status: 'mvp',
   },
   {
@@ -79,8 +88,8 @@ export const productModules: ProductModule[] = [
 ];
 
 // Modules safe to surface on the public corporate site, in narrative order:
-// the lab validates, the signal engine delivers, the chat explains.
+// the DD tool leads, the lab and signal board are open experiments, the chat explains.
 // 'legal' is deliberately excluded — contract review ships under APOSTL, not Vespera.
-export const companyFacingModuleIds: ProductModuleId[] = ['quant', 'signals', 'chat', 'files'];
+export const companyFacingModuleIds: ProductModuleId[] = ['dd', 'quant', 'signals', 'chat'];
 
 export const productModuleMap = new Map(productModules.map((module) => [module.id, module]));

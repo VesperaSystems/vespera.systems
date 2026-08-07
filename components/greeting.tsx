@@ -22,7 +22,8 @@ export const Greeting = () => {
         transition={{ delay: 0.6 }}
         className="text-2xl text-zinc-500"
       >
-        Ask about capital flows, relationships, sectors, or strategy signals.
+        Ask about datarooms, deal terms, diligence checklists, or the lab&apos;s
+        experiments.
       </motion.div>
     </div>
   );

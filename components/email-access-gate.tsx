@@ -44,8 +44,9 @@ export function EmailAccessGate() {
           Start with your email
         </h1>
         <p className="mt-3 text-sm leading-6 text-neutral-400">
-          Enter an email to try the Vespera research chat — 10 free messages a
-          day, no password needed. You stay signed in on this device.
+          Enter an email to try the Vespera research chat — ask about diligence
+          and the lab&apos;s experiments. 10 free messages a day, no password
+          needed. You stay signed in on this device.
         </p>
         <form action={formAction} className="mt-6 flex flex-col gap-3">
           <input

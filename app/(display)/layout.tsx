@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Vespera | Independent quant R&D',
+  title: 'Vespera | Free tools for dealmakers',
   description:
-    'Vespera is an independent quant research and development company in London. We commission PhD-level researchers to find strike points in public markets, validate and own the strategies, and license the signals to family offices and funds.',
+    'Vespera Systems is the software studio of Daniel Molloy Ltd, a technical due-diligence consultancy. We build free, open-source tools that help investors and lawyers read deals faster — starting with vespera, a local-first due-diligence CLI that never uploads your documents.',
   alternates: {
     canonical: 'https://www.vesperasystems.com',
   },
@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://www.vesperasystems.com',
     siteName: 'Vespera Systems',
-    title: 'Vespera | Independent quant R&D',
+    title: 'Vespera | Free tools for dealmakers',
     description:
-      'We commission quant researchers to find strike points in public markets, validate the strategies, and license the signals to family offices and funds.',
+      'Free, open-source tools for people who read deals — starting with a local-first due-diligence CLI that analyzes a dataroom without your documents ever leaving your machine.',
   },
 };
 

@@ -2,8 +2,8 @@ import { GraphDisplay } from '@/components/graph/graph-display';
 import { getClientGraphConfig } from '@/lib/client-graphs';
 
 export const metadata = {
-  title: 'Venture Graph',
-  description: 'Interactive venture relationship graph.',
+  title: 'Graph',
+  description: 'Interactive relationship graph — an open experiment from the Vespera studio.',
 };
 
 export default function GraphPage() {

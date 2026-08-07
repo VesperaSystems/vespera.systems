@@ -5,7 +5,7 @@ import { BrandMark } from '@/components/site/brand-mark';
 
 export const metadata: Metadata = {
   title: 'Contact - Vespera',
-  description: 'Request a Vespera private briefing or product demo.',
+  description: 'Contact Vespera about the free due-diligence tool, demos, or integration work.',
   alternates: { canonical: '/contact' },
 };
 
@@ -23,13 +23,18 @@ export default function ContactPage() {
       </header>
       <main className="mx-auto grid max-w-5xl gap-8 py-20">
         <div className="hud-panel rounded-[40px] p-8 sm:p-10">
-          <p className="hud-label">Institutional introductions</p>
+          <p className="hud-label">Get in touch</p>
           <h1 className="mt-5 text-5xl font-semibold tracking-[-0.06em] sm:text-7xl">
-            Request a private briefing.
+            Talk to us.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">
-            For demos, partnerships, hiring, or investor conversations, contact Vespera
-            directly.
+            For a demo of the free tool, press, or partnerships, contact Vespera directly.
+            For integration into your firm&apos;s workflow — or technical due-diligence
+            engagements — the consultancy behind Vespera is at{' '}
+            <a href="https://danielmolloy.com" className="font-semibold text-white underline">
+              danielmolloy.com
+            </a>
+            .
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a

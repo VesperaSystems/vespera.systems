@@ -17,8 +17,9 @@ export default function LabIndexPage() {
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold mb-4">Strategy Lab</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Algorithmic trading strategies built from first principles — theory,
-          runnable notebooks, backtests, and honest limitations.
+          Open experiments from the Vespera studio — algorithmic strategies
+          built from first principles, with runnable notebooks, backtests, and
+          honest limitations.
         </p>
       </div>
 
