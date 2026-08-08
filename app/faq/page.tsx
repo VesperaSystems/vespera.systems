@@ -35,9 +35,8 @@ export default function FAQPage() {
             <CardTitle>Is it really free?</CardTitle>
             <CardDescription>
               Yes — Apache-2.0 licensed, no accounts, no tiers, no trials.
-              Vespera is built inside Daniel Molloy Ltd, a technical
-              due-diligence consultancy; the consultancy makes its money on
-              services, not the tool.
+              Development is funded by paid integration and advisory work
+              around the tool, so the tool itself never needs a price tag.
             </CardDescription>
           </CardHeader>
         </Card>
@@ -58,10 +57,9 @@ export default function FAQPage() {
           <CardHeader>
             <CardTitle>Can you integrate it into our firm&apos;s workflow?</CardTitle>
             <CardDescription>
-              Yes. Daniel Molloy Ltd — the consultancy behind Vespera — does
-              integration and advisory work for investment firms, from wiring
-              vespera into your deal process to full technical due-diligence
-              engagements. Start at{' '}
+              Yes — integration and advisory engagements are how the project
+              sustains itself, from wiring vespera into your deal process to
+              full technical due-diligence work. Details at{' '}
               <a
                 href="https://danielmolloy.com"
                 className="font-medium underline"
@@ -88,14 +86,14 @@ export default function FAQPage() {
         <div className="text-center mt-12">
           <h2 className="text-2xl font-bold mb-4">Still have questions?</h2>
           <p className="text-muted-foreground mb-4">
-            Get in touch and we&apos;ll help you get set up — or point you at
-            the right person for integration work.
+            Open an issue or start a discussion on GitHub — it&apos;s where the
+            tool is built.
           </p>
           <a
-            href="mailto:hello@vespera.systems"
+            href="https://github.com/VesperaSystems/vespera"
             className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
           >
-            Contact us
+            vespera on GitHub
           </a>
         </div>
       </div>

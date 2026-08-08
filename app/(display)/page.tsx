@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BrandMark } from '@/components/site/brand-mark';
 import { MarketsMap } from '@/components/site/markets-map';
 import { Float, Reveal } from '@/components/site/reveal';
 import { companyFacingModuleIds, productModuleMap } from '@/lib/modules';
@@ -9,7 +8,7 @@ import { companyFacingModuleIds, productModuleMap } from '@/lib/modules';
 const companyProof = [
   'Free and open source, Apache-2.0 — install it, read the code, keep it forever.',
   'Local-first by design: analysis runs on your machine, and your documents never leave it.',
-  'Built from real due-diligence engagements at Daniel Molloy Ltd, the consultancy behind Vespera.',
+  'Reads contracts, decks, and financials — and flags where they contradict each other.',
 ];
 
 const howItWorks = [
@@ -27,9 +26,9 @@ const howItWorks = [
   },
   {
     step: '03',
-    title: 'Integrate',
+    title: 'Sustain',
     detail:
-      'When a firm wants Vespera wired into its own deal workflow — or a deeper technical review — Daniel Molloy Ltd does the integration and advisory work.',
+      'Paid integration and advisory work around the tool funds its development. The tool itself never gains a price tag.',
   },
 ];
 
@@ -40,46 +39,64 @@ const companyModules = companyFacingModuleIds
 export default function CompanyLandingPage() {
   return (
     <div className="min-h-screen text-white">
-      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <BrandMark />
-        <nav className="flex items-center gap-2">
-          <a
-            href="#get-vespera"
-            className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/10"
-          >
-            Get vespera
-          </a>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-200"
-          >
-            Contact
+      <header className="sticky top-4 z-50 mx-auto w-full max-w-3xl px-4 sm:px-6">
+        <div className="flex items-center justify-between gap-3 rounded-full border border-white/10 bg-black/75 py-2.5 pl-4 pr-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.55)] backdrop-blur-xl">
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src="/logos/vespera-mark-dark.svg"
+              alt="Vespera"
+              width={32}
+              height={32}
+              priority
+              className="size-8"
+            />
+            <span className="text-sm font-semibold uppercase tracking-[0.26em] text-white">
+              Vespera
+            </span>
           </Link>
-        </nav>
+          <nav className="flex items-center gap-1.5">
+            <a
+              href="#demo"
+              className="hidden items-center rounded-full px-4 py-2.5 text-sm font-semibold text-neutral-200 transition hover:text-white sm:inline-flex"
+            >
+              Watch demo
+            </a>
+            <a
+              href="https://github.com/VesperaSystems/vespera"
+              className="hidden items-center rounded-full px-4 py-2.5 text-sm font-semibold text-neutral-200 transition hover:text-white sm:inline-flex"
+            >
+              GitHub
+            </a>
+            <a
+              href="#get-vespera"
+              className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-neutral-950 transition hover:bg-neutral-200"
+            >
+              Get vespera
+            </a>
+          </nav>
+        </div>
       </header>
 
-      <section className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 pb-16 pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:px-10 lg:pb-24 lg:pt-20">
-        <div>
+      <section className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 pb-16 pt-14 lg:grid-cols-[1.02fr_0.98fr] lg:px-10 lg:pb-24 lg:pt-24">
+        <div className="text-center lg:text-left">
           <Reveal onMount>
             <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-300">
-              Software studio of Daniel Molloy Ltd
+              Free &amp; open source
             </span>
           </Reveal>
           <Reveal onMount delay={0.1}>
-            <h1 className="mt-8 max-w-6xl text-5xl font-semibold leading-[0.9] tracking-[-0.065em] sm:text-7xl lg:text-8xl">
-              We build free tools for people who read deals.
+            <h1 className="mx-auto mt-8 max-w-6xl text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-7xl lg:mx-0 lg:text-8xl lg:leading-[0.9] lg:tracking-[-0.065em]">
+              Read a dataroom without uploading it.
             </h1>
           </Reveal>
           <Reveal onMount delay={0.22}>
-            <p className="mt-7 max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl">
-              Vespera is the software studio of Daniel Molloy Ltd, a technical due-diligence
-              consultancy for investment firms. We turn what we learn on real engagements into
-              free, open-source tools — starting with vespera, a local-first CLI that reads a
-              dataroom, cross-checks its claims, and scores it against your thesis without your
-              documents ever leaving your machine.
+            <p className="mx-auto mt-7 max-w-3xl text-lg leading-8 text-neutral-300 sm:text-xl lg:mx-0">
+              vespera is a free, open-source CLI that reads a dataroom, cross-checks its claims,
+              and scores the deal against your investment thesis — with AI running locally on
+              your machine, so confidential documents never leave it.
             </p>
           </Reveal>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-stretch justify-center gap-4 sm:flex-row sm:items-center lg:justify-start">
             <a
               href="#get-vespera"
               className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-neutral-950 transition hover:bg-neutral-200"
@@ -87,13 +104,13 @@ export default function CompanyLandingPage() {
               Get vespera
             </a>
             <a
-              href="https://danielmolloy.com"
+              href="#demo"
               className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:border-white/40 hover:bg-white/10"
             >
-              Integration &amp; advisory
+              Watch the demo
             </a>
           </div>
-          <div className="mt-10 grid gap-3">
+          <div className="mt-10 grid gap-3 text-left">
             {companyProof.map((point, index) => (
               <Reveal key={point} onMount delay={0.34 + index * 0.09}>
                 <div className="hud-panel rounded-3xl px-5 py-4 text-sm leading-6 text-neutral-200">
@@ -177,7 +194,7 @@ export default function CompanyLandingPage() {
             <Reveal>
               <p className="hud-label">Get vespera</p>
               <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
-                Read a dataroom without uploading it.
+                Up and running in two commands.
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-7 text-neutral-300">
                 vespera reads a dataroom, cross-checks its claims, scores it against your
@@ -213,18 +230,17 @@ export default function CompanyLandingPage() {
               <p className="mt-5 max-w-3xl text-sm leading-6 text-neutral-500">
                 Not a terminal person? A one-click desktop version is on the way —{' '}
                 <a
-                  href="mailto:hello@vespera.systems"
+                  href="https://github.com/VesperaSystems/vespera"
                   className="underline hover:text-neutral-300"
                 >
-                  email us
+                  star the repo on GitHub
                 </a>{' '}
-                and we&apos;ll let you know when it lands, or set it up for your team in the
-                meantime.
+                to follow along.
               </p>
             </Reveal>
           </div>
           <Reveal delay={0.2}>
-            <div className="hud-panel rounded-[32px] p-3">
+            <div id="demo" className="hud-panel scroll-mt-24 rounded-[32px] p-3">
               <div className="aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-black/40">
                 <iframe
                   src="https://www.loom.com/embed/4fbb590c00754501a8459f874ecbdb93"
@@ -242,7 +258,6 @@ export default function CompanyLandingPage() {
         </div>
         <script
           type="application/ld+json"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: static VideoObject JSON-LD, no user input
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
@@ -264,7 +279,7 @@ export default function CompanyLandingPage() {
         <Reveal>
           <p className="hud-label">How it works</p>
           <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
-            The consultancy funds the tools. The tools stay free.
+            Free is the business model.
           </h2>
         </Reveal>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -296,17 +311,29 @@ export default function CompanyLandingPage() {
             />
             <p className="text-sm text-neutral-400">Vespera</p>
           </div>
-          <a
-            href="mailto:hello@vespera.systems"
-            className="text-sm text-neutral-400 transition hover:text-white"
-          >
-            hello@vespera.systems
-          </a>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://github.com/VesperaSystems/vespera"
+              className="text-sm text-neutral-400 transition hover:text-white"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://pypi.org/project/vespera/"
+              className="text-sm text-neutral-400 transition hover:text-white"
+            >
+              PyPI
+            </a>
+          </div>
         </div>
         <p className="mt-8 text-center text-[11px] leading-5 text-neutral-600 sm:text-left">
-          Vespera Systems is a trading name of Daniel Molloy Ltd, a company registered in England
-          and Wales. Company number: 15228212. Registered office: 5 Providence Court, Pynes Hill,
-          Exeter, Devon, United Kingdom, EX2 5JL. VAT number: GB452010546.
+          vespera is built and maintained by Daniel Molloy. Integration and advisory via{' '}
+          <a href="https://danielmolloy.com" className="underline hover:text-neutral-400">
+            danielmolloy.com
+          </a>
+          . Vespera Systems is a trading name of Daniel Molloy Ltd, a company registered in
+          England and Wales. Company number: 15228212. Registered office: 5 Providence Court,
+          Pynes Hill, Exeter, Devon, United Kingdom, EX2 5JL. VAT number: GB452010546.
         </p>
       </footer>
     </div>

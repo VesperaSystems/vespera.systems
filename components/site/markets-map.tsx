@@ -107,16 +107,11 @@ export function MarketsMap() {
                 Vespera
               </p>
               <p className="mt-1 text-sm leading-6 text-neutral-700">
-                Free, open-source tools from the studio of Daniel Molloy Ltd, a technical
-                due-diligence consultancy.{' '}
+                Free, open-source tools for the moment the dataroom opens.{' '}
                 <a href="#get-vespera" className="font-semibold underline">
                   Get the tool
                 </a>{' '}
-                on this page; integration and advisory at{' '}
-                <a href="https://danielmolloy.com" className="font-semibold underline">
-                  danielmolloy.com
-                </a>
-                .
+                on this page — Apache-2.0, and it stays that way.
               </p>
             </div>
           </div>

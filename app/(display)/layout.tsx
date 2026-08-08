@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Vespera | Free tools for dealmakers',
   description:
-    'Vespera Systems is the software studio of Daniel Molloy Ltd, a technical due-diligence consultancy. We build free, open-source tools that help investors and lawyers read deals faster — starting with vespera, a local-first due-diligence CLI that never uploads your documents.',
+    'vespera is a free, open-source, local-first due-diligence CLI. It reads a dataroom, cross-checks its claims, and scores the deal against your investment thesis — without your documents ever leaving your machine.',
   alternates: {
     canonical: 'https://vesperasystems.com',
   },

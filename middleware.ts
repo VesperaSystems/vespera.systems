@@ -41,8 +41,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // The old product landing page moved into the root page.
-  if (pathname === '/home') {
+  // Retired routes fold into the root page: /home (old product landing)
+  // and /contact (contact now lives in the footer).
+  if (pathname === '/home' || pathname === '/contact') {
     const url = request.nextUrl.clone();
     url.pathname = '/';
     return NextResponse.redirect(url, 308);
