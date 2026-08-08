@@ -4,7 +4,8 @@ const require = createRequire('/Users/danielmolloy/code/vespera-systems/vespera.
 const { chromium } = require('playwright');
 
 const SCRATCH = '/private/tmp/claude-501/-Users-danielmolloy-code-vespera-systems/195f7928-e362-489c-aa1f-3db6f73d0b6d/scratchpad';
-const FPS = 30, DUR = 56;
+const FPS = 30;
+const DUR = 56;
 const FRAMES = FPS * DUR;
 mkdirSync(`${SCRATCH}/frames`, { recursive: true });
 
