@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { ExplainerVideo } from '@/components/site/explainer-video';
 import { MarketsMap } from '@/components/site/markets-map';
 import { Float, Reveal } from '@/components/site/reveal';
 import { companyFacingModuleIds, productModuleMap } from '@/lib/modules';
@@ -123,66 +124,86 @@ export default function CompanyLandingPage() {
 
         <Float className="relative">
           <div className="absolute -inset-8 rounded-[56px] bg-white/10 blur-3xl" />
-          <div className="hud-panel relative overflow-hidden rounded-[42px] p-5">
-            <div className="rounded-[32px] border border-white/10 bg-black/40 p-6">
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <div>
-                  <p className="hud-label">The tool</p>
-                  <h2 className="mt-2 text-3xl font-semibold tracking-[-0.05em]">
-                    Niche by design.
-                  </h2>
-                </div>
-                <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-neutral-300">
-                  Free on PyPI
-                </span>
-              </div>
-              <div className="mt-5 grid gap-3">
-                {companyModules.map((module) => (
-                  <article
-                    key={module.id}
-                    className="rounded-3xl border border-white/[0.08] bg-white/[0.045] p-5"
-                  >
-                    <p className="hud-label">{module.eyebrow}</p>
-                    <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em]">
-                      {module.label}
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-neutral-400">{module.summary}</p>
-                  </article>
-                ))}
-                <article className="rounded-3xl border border-white/[0.08] bg-white/[0.045] p-5">
-                  <p className="hud-label">Open source</p>
-                  <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em]">
-                    Built in the open.
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-neutral-400">
-                    Read the code, star it, fork it, ship a pull request — the whole tool is
-                    public.
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    <a
-                      href="https://github.com/VesperaSystems/vespera"
-                      className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-950 transition hover:bg-neutral-200"
-                    >
-                      Star on GitHub
-                    </a>
-                    <a
-                      href="https://github.com/VesperaSystems/vespera/fork"
-                      className="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-200 transition hover:border-white/40"
-                    >
-                      Fork
-                    </a>
-                    <a
-                      href="https://pypi.org/project/vespera/"
-                      className="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-200 transition hover:border-white/40"
-                    >
-                      PyPI
-                    </a>
-                  </div>
-                </article>
-              </div>
+          <div className="hud-panel relative overflow-hidden rounded-[42px] p-4">
+            <div className="overflow-hidden rounded-[30px] border border-white/10 bg-black/40">
+              <ExplainerVideo />
             </div>
+            <p className="px-3 py-3 text-center text-xs uppercase tracking-[0.18em] text-neutral-500">
+              vespera in 60 seconds
+            </p>
           </div>
         </Float>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'VideoObject',
+              name: 'vespera in 60 seconds',
+              description:
+                'A one-minute animated overview of vespera, the free, open-source CLI that reads a dataroom, cross-checks its claims, and scores the deal against your investment thesis — locally, without your documents ever leaving your machine.',
+              thumbnailUrl: 'https://www.vesperasystems.com/videos/vespera-explainer-poster.jpg',
+              duration: 'PT56S',
+              contentUrl: 'https://www.vesperasystems.com/videos/vespera-explainer.mp4',
+            }),
+          }}
+        />
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-24">
+        <Reveal>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="hud-label">The tool</p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.05em] sm:text-4xl">
+                Niche by design.
+              </h2>
+            </div>
+            <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-neutral-300">
+              Free on PyPI
+            </span>
+          </div>
+        </Reveal>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {companyModules.map((module, index) => (
+            <Reveal key={module.id} delay={index * 0.1}>
+              <article className="hud-panel h-full rounded-3xl p-6">
+                <p className="hud-label">{module.eyebrow}</p>
+                <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em]">{module.label}</h3>
+                <p className="mt-2 text-sm leading-6 text-neutral-400">{module.summary}</p>
+              </article>
+            </Reveal>
+          ))}
+          <Reveal delay={companyModules.length * 0.1}>
+            <article className="hud-panel h-full rounded-3xl p-6">
+              <p className="hud-label">Open source</p>
+              <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em]">Built in the open.</h3>
+              <p className="mt-2 text-sm leading-6 text-neutral-400">
+                Read the code, star it, fork it, ship a pull request — the whole tool is public.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a
+                  href="https://github.com/VesperaSystems/vespera"
+                  className="rounded-full bg-white px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-950 transition hover:bg-neutral-200"
+                >
+                  Star on GitHub
+                </a>
+                <a
+                  href="https://github.com/VesperaSystems/vespera/fork"
+                  className="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-200 transition hover:border-white/40"
+                >
+                  Fork
+                </a>
+                <a
+                  href="https://pypi.org/project/vespera/"
+                  className="rounded-full border border-white/15 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-neutral-200 transition hover:border-white/40"
+                >
+                  PyPI
+                </a>
+              </div>
+            </article>
+          </Reveal>
+        </div>
       </section>
 
       <section
@@ -251,7 +272,7 @@ export default function CompanyLandingPage() {
                 />
               </div>
               <p className="px-3 py-3 text-xs uppercase tracking-[0.18em] text-neutral-500">
-                Watch the 3-minute demo
+                See it in action — the full 3-minute demo on a real dataroom
               </p>
             </div>
           </Reveal>
